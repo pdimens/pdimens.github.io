@@ -241,6 +241,7 @@ params:
         school:
           name: "University of Southern Mississippi"
           url: "https://www.usm.edu/gulf-coast-research-laboratory/index.php"
+          date: "2017 - 2022"
         featuredLink:
           enable: false
           url: "https://example.com"
