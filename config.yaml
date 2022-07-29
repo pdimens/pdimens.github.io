@@ -1,5 +1,5 @@
  
-baseURL: "https://pdimens.github.io"
+baseURL: "https://pdimens.github.io/"
 languageCode: "en-us"
 title: "Pavel Dimens"
 theme: hugo-profile
