@@ -3,7 +3,7 @@ baseURL: "https://pdimens.github.io"
 languageCode: "en-us"
 title: "Pavel Dimens"
 theme: hugo-profile
-publishDir: "public"
+publishDir: "docs"
 Paginate: 20
 disqusShortname: #gurusabarish
 googleAnalytics: #G-DWJJVE27WD
