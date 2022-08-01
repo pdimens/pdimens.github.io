@@ -9,6 +9,7 @@ description: "A gentle introduction to STRUCTURE"
 toc: 
 ---
 
+
 ## Background
 
 Structure is a brilliant intellectual work. Structure also sucks in terms of user friendliness. 
