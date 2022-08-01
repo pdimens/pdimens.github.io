@@ -69,8 +69,6 @@ If you want to try it yourself, there's another post on this site to guide you t
 
 You probably might not put much stock in fonts, but I'd like to convince you to  reconsider. Fonts are a fantastic subtle way to improve a  poster/presentation. Let's get some basics out of the way: don't use  Comic Sans, Papyrus, Impact, or monospace fonts. If you must use Calibri, switch to Calibri Light. All posters and talks should be limited to at most two fonts;  a serif (with hats, e.g. Times New Roman) and a sans serif (without  hats, e.g. Arial). Don't use stupid flashy or artsy fonts. If you are  using downloaded fonts (such as [Roboto](https://fonts.google.com/specimen/Roboto) or [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab)) in  a powerpoint presentation, you need to "embed" the font in order for  the fonts to show up on a computer that doesn't have it installed, such  as a computer at a conference. If you are a Windows or macOS user, you can embed your fonts using this [tutorial](http://www.pptfaq.com/FAQ00076_Embedding_fonts.htm).
 
-**Caution:** If  macOS users choose this option, any edits they make and save on their  Mac will remove the embedded font and it will have to be embedded once  again in Windows.
-
 <img src="/images/good-visuals/fonts.png" alt="serif explanation"  width=100%> 
 
 
