@@ -13,8 +13,8 @@
       <pubDate>Sat, 30 Jul 2022 23:29:21 +0530</pubDate>
       
       <guid>https://pdimens.github.io/posts/structuretutorial/</guid>
-      <description>Background Structure is a brilliant intellectual work. Structure also sucks in terms of user friendliness.
-Why it sucks
+      <description>Background Structure is a brilliant intellectual work. Structure is also not user-friendly. In fact, one might go so far as to say it&amp;rsquo;s sometimes user-hostile.
+User hostility
 extremely unforgiving input file parsing manual is not terribly user friendly program is not user friendly GUI version isn&amp;rsquo;t great for long runs (i.e. modern data) two different parameter files there are a million parameters default plots suck and aren&amp;rsquo;t dichromat friendly runs on a single thread/cpu and takes a while depending on your data So, using Structure is largely about navigating these pitfalls.</description>
     </item>
     

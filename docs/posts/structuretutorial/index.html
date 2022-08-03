@@ -216,10 +216,14 @@ Using Structure | Pavel Dimens
             </div>
           </div>
           
+          <div class="featured-image">
+            <img class="img-fluid" src="/images/structure/structure.png" alt="Using Structure">
+          </div>
+          
           <article class="page-content  p-2">
           <h2 id="background">Background</h2>
-<p>Structure is a brilliant intellectual work. Structure also sucks in terms of user friendliness.</p>
-<p><strong>Why it sucks</strong></p>
+<p>Structure is a brilliant intellectual work. Structure is also not user-friendly. In fact, one might go so far as to say it&rsquo;s sometimes user-hostile.</p>
+<p><strong>User hostility</strong></p>
 <ul>
 <li>extremely unforgiving input file parsing</li>
 <li><a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf">manual is not terribly user friendly</a></li>
@@ -232,25 +236,23 @@ Using Structure | Pavel Dimens
 </ul>
 <p>So, using Structure is largely about navigating these pitfalls. First, we&rsquo;re going to ignore the GUI altogether and run Structure via command line, which comes with the added bonus of being able to run multiple instances of Structure at once for different parameters (like <code>K</code>). This needs to be done in either macOS or Linux. Since it&rsquo;s a C/Java program, I&rsquo;m sure it can on Windows too, but I never bothered trying. Using cmd or powershell in Windows is a personal hell.</p>
 <h2 id="requirements">Requirements</h2>
-<ol start="2">
+<ol>
 <li>Structure Downloaded from <a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/html/structure.html">here</a> (a conda installation probably works too)</li>
 <li>Java installed on the system if using the GUI (we aren&rsquo;t)</li>
 <li>Patience</li>
 </ol>
-<h2 id="example-file">Example file</h2>
-<p>An example of a real-world Structure input file can be found <a href="https://github.com/pdimens/C.acronotus-data-2019/blob/master/acro_assignment_allloci_stru_input">here</a>. Snippets of it will be used for explanations below.</p>
-<h2 id="input-file-format">Input File Format</h2>
-<p>Structure has a <strong>very</strong> specific file format and it&rsquo;s awful. The first row is the locus names (optional), and the subsequent rows are the sample names (optional) and their genotypes, space delimited. You can also have extra rows after the locus header, and you&rsquo;ll need to specify how many extra rows in the &ldquo;params&rdquo; files later if you do. After the header (if it&rsquo;s there), each sample gets <em>ploidy</em> number of rows (or not), one for each allele per locus. You can force it to be one sample per row, but I assure you that&rsquo;s a nightmare waiting to happen for non-haploids.</p>
+<h2 id="input-files">Input Files</h2>
+<p>Structure has a <strong>very</strong> specific file format and it&rsquo;s awful. The first row is the locus names (optional), and the subsequent rows are the sample names (optional) and their genotypes, space delimited. You can also have extra rows after the locus header, and you&rsquo;ll need to specify how many extra rows in the &ldquo;params&rdquo; files later if you do. After the header (if it&rsquo;s there), each sample gets <em>ploidy</em> number of rows (or not), one for each allele per locus. You can force it to be one sample per row, but I assure you that&rsquo;s a nightmare waiting to happen for non-haploids. You see why this is frustrating? An example of a real-world Structure input file can be found <a href="https://github.com/pdimens/C.acronotus-data-2019/blob/master/acro_assignment_allloci_stru_input">here</a>. Snippets of it will be used for explanations below.</p>
 <h4 id="example-input-file-diploid">Example input file (diploid)</h4>
-<pre tabindex="0"><code>  contig_35208 contig_23109 contig_4493  &lt;--- header of loci
-cca_001 002 -9 001     &lt;--- sample cca_001, first allele per locus
-cca_001 001 -9 002     &lt;--- sample cca_001, second allele per locus
-cca_002 001 001 001    &lt;--- sample cca_002, first allele per locus
-cca_002 002 002 001    &lt;--- sample cca_002, second allele per locus
-</code></pre><p>The <code>&lt;--- some words</code> are for teaching purposes, don&rsquo;t actually include that in your input file or Structure will yell at you. The file continues like that till the very end. Missing genotypes are traditionally coded as <code>-9 </code> (no idea why) , and you can change that in the <code>mainparams</code> with the <code>MISSING</code> parameter.</p>
+<pre tabindex="0"><code>  snp_1 snp_2 snp_3  &lt;--- header of loci
+ind_001 002 -9 001     &lt;--- sample ind_001, first allele per locus
+ind_001 001 -9 002     &lt;--- sample ind_001, second allele per locus
+ind_002 001 001 001    &lt;--- sample ind_002, first allele per locus
+ind_002 002 002 001    &lt;--- sample ind_002, second allele per locus
+</code></pre><p>The <code>&lt;--- some words</code> are for teaching purposes, don&rsquo;t actually include that in your input file or Structure will yell at you. The file continues like that until the very end. Missing genotypes are traditionally coded as <code>-9 </code> (no idea why) , and you can change that in the <code>mainparams</code> with the <code>MISSING</code> parameter. Pro tip: just keep missing as <code>-9</code>.</p>
 <h3 id="extra-columns">Extra Columns</h3>
 <p>Unlike extra rows (which probably have some use somewhere), extra columns are very important for the input files.  Extra columns go in between the sample name and the first genotype and have to be noted in the params files (explained below). Here is an example of a snippet of a real-world structure file with extra columns:</p>
-<pre tabindex="0"><code>  contig_35208 contig_23109 contig_4493
+<pre tabindex="0"><code>  snp_1 snp2 snp_3
 cca_001 1 1 1 002 001 001
 cca_001 1 1 1 001 001 002
 cca_002 1 1 1 001 001 001
@@ -285,9 +287,9 @@ seg_003 2 1 5 001 001 001
 <p><strong>The human version:</strong></p>
 <p>This is extra information to let you make stuff more hierarchical, of sorts.  Although I have my <code>POPDATA</code> designations of Atlantic/Gulf, I use the <code>LOCDATA</code> column to break the samples down into finer sampling localities. So, <code>cca_</code> (Cape Canaveral), is one location, <code>meg_</code> (Mideast Gulf) is another, <code>key_</code> (Florida Keys) is another, etc.</p>
 <h3 id="creating-the-input-file">Creating the input file</h3>
-<p>Options include <a href="http://www.cmpg.unibe.ch/software/PGDSpider/">PGDSpider2</a>, <a href="https://github.com/thierrygosselin/radiator">R::radiator</a>, and probably some other ones. You don&rsquo;t want to create this file by hand.  If you already have a Genepop formatted file on hand, I made a script that converts it into Structure format via radiator <a href="https://github.com/pdimens/bio-bin/blob/master/genepop2structure">here</a>.</p>
+<p>Options include <a href="http://www.cmpg.unibe.ch/software/PGDSpider/">PGDSpider2</a>, <a href="https://github.com/thierrygosselin/radiator">R::radiator</a>, and probably some other ones. You don&rsquo;t want to create this file by hand.  If you already have a Genepop formatted file on hand, I made a script that converts it into Structure format via radiator <a href="https://github.com/pdimens/bio-bin/blob/master/genepop2structure">here</a>. You can also use <a href="https://github.com/BioJulia/PopGen.jl">PopGen.jl</a> to read in from genepop/vcf/plink/csv and write to structure of faststructure formats.</p>
 <h2 id="parameter-files">Parameter files</h2>
-<p>You can run Structure and manually specify every parameter, but absolutely don&rsquo;t do that. Instead, use <code>mainparams</code> and <code>extraparams</code> files.</p>
+<p>You can run Structure and manually specify every parameter as arguments to the comman line call, but absolutely don&rsquo;t do that. Instead, use <code>mainparams</code> and <code>extraparams</code> files.</p>
 <h3 id="mainparams">mainparams</h3>
 <p>Here is what your mainparams file should look like (yes, including the <code>#define</code> part):</p>
 <pre tabindex="0"><code>#define OUTFILE some_output_name
@@ -312,114 +314,94 @@ seg_003 2 1 5 001 001 001
 #define BURNIN 1000000
 #define NUMREPS 1000000
 </code></pre><p>Let&rsquo;s go through them:</p>
-<ul>
-<li>
-<p><code>OUTFILE</code> is the name you want the output file to have (no spaces) . <strong>Don&rsquo;t use quotes</strong>.</p>
-</li>
-<li>
-<p><code>INFILE</code> is the name of your input file. Also no spaces, also don&rsquo;t use quotes.</p>
-</li>
-<li>
-<p><code>NUMINDS</code> the number of samples in your input file.</p>
-<ul>
-<li>Structure refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.</li>
-</ul>
-</li>
-<li>
-<p><code>NUMLOCI</code> is the number of loci in your input file</p>
-<ul>
-<li>Structure also refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.</li>
-</ul>
-</li>
-<li>
-<p><code>LABEL</code> is a yes (<code>1</code>) or no (<code>0</code>) of whether your input file contains sample names.</p>
-<ul>
-<li>the example input files above would use <code>LABEL 1</code></li>
-</ul>
-</li>
-<li>
-<p><code>POPDATA</code>, <code>POPFLAG</code>, and <code>LOCDATA</code> are yes (<code>1</code>) or no (<code>0</code>) and we described in the previous section.</p>
-<ul>
-<li>We would set each of these to <code>1</code> for the example input file above</li>
-</ul>
-</li>
-<li>
-<p><code>PHENOTYPE</code> if phenotype info is included. Honestly never used this and don&rsquo;t know how to.</p>
-</li>
-<li>
-<p><code>MARKERNAMES</code> is a yes (<code>1</code>) or no (<code>0</code>) of whether your input file contains a header of locus names</p>
-<ul>
-<li>the example input files above would use <code>MARKERNAMES 1</code></li>
-</ul>
-</li>
-<li>
-<p><code>MAPDISTANCES</code> is whether you have an extra row of map distances between neighboring loci.</p>
-</li>
-<li>
-<p><code>ONEROWPERIND</code> is a yes (<code>1</code>) or no (<code>0</code>) of whether you have a single row per sample</p>
-<ul>
-<li>the example input files above would use <code>ONEROWPERIND 0</code></li>
-<li>literally the worst format ever, don&rsquo;t do this</li>
-</ul>
-</li>
-<li>
-<p><code>PHASEINFO</code> is a yes (<code>1</code>) or no (<code>0</code>) of whether you have an extra row of haplotype phase information after each sample row</p>
-<ul>
-<li>this is exclusive to the other linkage-aware stuff Structure can do</li>
-</ul>
-</li>
-<li>
-<p><code>PHASED</code> is a yes (<code>1</code>) or no (<code>0</code>) of whether your haplotypes are correctly phased, whatever that means.</p>
-<ul>
-<li>this is exclusive to the other linkage-aware stuff Structure can do and used in tandem with <code>PHASEINFO</code></li>
-</ul>
-</li>
-<li>
-<p><code>RECESSIVEALLELES</code> indicates the next row of the data file contains a list of L integers indicating which alleles are recessive at each locus. Setting this to 1 implies that the dominant marker model is in use.</p>
-<ul>
-<li>Never used this. Would be <code>0</code> for the examples above</li>
-</ul>
-</li>
-<li>
-<p><code>EXTRACOLS</code> the number of extra columns unrelated to Structure that the software should ignore.</p>
-<ul>
-<li>I would avoid adding anything you don&rsquo;t need to Structure input files</li>
-</ul>
-</li>
-<li>
-<p><code>MISSING</code> the value missing genotypes/alleles are coded as</p>
-</li>
-<li>
-<p><code>PLOIDY</code> the ploidy of your data</p>
-<ul>
-<li>Structure needs this to read the rows correctly. It might have a math component too. Who knows.</li>
-</ul>
-</li>
-<li>
-<p><code>MAXPOPS</code> the number of groups Structure will try to cluster your data into</p>
-<ul>
-<li>this parameter name is kind of misleading because it&rsquo;s a fixed number, not iteratively trying 1:MAXPOPS</li>
-<li>see the section below about adjusting <code>MAXPOPS</code></li>
-</ul>
-</li>
-<li>
-<p><code>BURNIN</code> the number of iterations to use at the burn in for the Bayesian model.</p>
-<ul>
-<li>Ideally you&rsquo;d want the model to already converge by the time it finishes the burn in, so you&rsquo;d want this to be a reasonably high number</li>
-<li>1million in the example above was probably a bit overkill for the data it was used on (212 samples X 2204 snp loci)</li>
-</ul>
-</li>
-<li>
-<p><code>NUMREPS</code> the number of iterations to run the model after the burn in completes</p>
-<ul>
-<li>You also want this to be a reasonably high number</li>
-<li>1million in the example above was a bit overkill for the data it was used on, 500k or 750k was probably enough</li>
-<li>Structure took 22-24hrs to complete with those <code>BURNIN</code> and <code>NUMREPS</code> parameters on the 212x2204 data</li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mainparam</th>
+<th style="text-align:left">what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>OUTFILE</code></td>
+<td style="text-align:left">is the name you want the output file to have (no spaces) . <strong>Don&rsquo;t use quotes</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>INFILE</code></td>
+<td style="text-align:left">the name of your input file. Also no spaces, also don&rsquo;t use quotes.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMINDS</code></td>
+<td style="text-align:left">the number of samples in your input file. Structure refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMLOCI</code></td>
+<td style="text-align:left">the number of loci in your input file. Structure also refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LABEL</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether your input file contains sample names. The example input files above would use <code>LABEL 1</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>POPDATA</code>, <code>POPFLAG</code>, and <code>LOCDATA</code></td>
+<td style="text-align:left">are yes (<code>1</code>) or no (<code>0</code>) and we described in the previous section. We would set each of these to <code>1</code> for the example input file above</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PHENOTYPE</code></td>
+<td style="text-align:left">if phenotype info is included. Honestly never used this and don&rsquo;t know how to.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MARKERNAMES</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether your input file contains a header of locus names. The example input files above would use <code>MARKERNAMES 1</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAPDISTANCES</code></td>
+<td style="text-align:left">whether you have an extra row of map distances between neighboring loci.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ONEROWPERIND</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether you have a single row per sample. The example input files above would use <code>ONEROWPERIND 0</code>. It&rsquo;s iterally the worst format ever, don&rsquo;t do this.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PHASEINFO</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether you have an extra row of haplotype phase information after each sample row. This is exclusive to the other linkage-aware stuff Structure can do</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PHASED</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether your haplotypes are correctly phased, whatever that means. This is exclusive to the other linkage-aware stuff Structure can do and used in tandem with <code>PHASEINFO</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RECESSIVEALLELES</code></td>
+<td style="text-align:left">indicates the next row of the data file contains a list of L integers indicating which alleles are recessive at each locus. Setting this to <code>1</code> implies that the dominant marker model is in use. Never used this. Would be <code>0</code> for the examples above</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>EXTRACOLS</code></td>
+<td style="text-align:left">the number of extra columns unrelated to Structure that the software should ignore. I would avoid adding anything you don&rsquo;t need to Structure input files.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MISSING</code></td>
+<td style="text-align:left">the value missing genotypes/alleles are coded as</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PLOIDY</code></td>
+<td style="text-align:left">the ploidy of your data. Structure needs this to read the rows correctly. It might have a math component too. Who knows.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAXPOPS</code></td>
+<td style="text-align:left">the number of groups Structure will try to cluster your data into. This parameter name is kind of misleading because it&rsquo;s a fixed number, not iteratively trying 1:MAXPOPS. See the section below about adjusting <code>MAXPOPS</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BURNIN</code></td>
+<td style="text-align:left">the number of iterations to use at the burn in for the Bayesian model. Ideally you&rsquo;d want the model to already converge by the time it finishes the burn in, so you&rsquo;d want this to be a reasonably high number. 1 million in the example above was probably overkill for the data it was used on (212 samples X 2204 snp loci)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMREPS</code></td>
+<td style="text-align:left">the number of iterations to run the model after the burn in completes. You also want this to be a reasonably high number. 1 million in the example above was overkill for the data it was used on, 500k or 750k was probably enough. Structure took 22-24hrs to complete with those <code>BURNIN</code> and <code>NUMREPS</code> parameters on the 212x2204 data.</td>
+</tr>
+</tbody>
+</table>
 <p>There are a few more advanced &ldquo;main&rdquo; parameters, see <a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf">the documentation</a> for more information.</p>
-<h2 id="extraparams">extraparams</h2>
+<h3 id="extraparams">extraparams</h3>
 <p>If you thought the mainparams were exhaustive, well, the extraparams are even more so. This file contains parameters that govern the kind of models Structure runs and how it runs them. Here is what the extraparams file looks like:</p>
 <pre tabindex="0"><code>#define NOADMIX 1
 #define LINKAGE 0
@@ -452,44 +434,40 @@ seg_003 2 1 5 001 001 001
 
 #define UPDATEFREQ 5000 
 </code></pre><p>These parameters are super specific and we&rsquo;re only going to cover a few of them, so I would recommend looking at the <a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf">the documentation</a> to make sense of it all.</p>
-<ul>
-<li>
-<p><code>NOADMIX</code> is a yes (<code>1</code>) or no (<code>0</code>) of whether to use the admixture model</p>
-<ul>
-<li>i.e. are we allowing the model to consider admixed individuals (<code>1</code>) or can we say every individual is purely from a single population (<code>0</code>)</li>
-</ul>
-</li>
-<li>
-<p><code>LINKAGE</code> is a yes (<code>1</code>) or no (<code>0</code>)  of whether to incorporate the linkage information mentioned above</p>
-</li>
-<li>
-<p><code>USEPOPINFO</code> is a yes (<code>1</code>) or no (<code>0</code>)  of using the POPINFO model (corresponds to the <code>POPFLAG</code> above)</p>
-<ul>
-<li>This model uses sampling locations to test for migrants or hybrids</li>
-</ul>
-</li>
-<li>
-<p><code>GENSBACK</code> is an integer of how many generations back to make assignment inferences for</p>
-<ul>
-<li>in the example extraparams, this is set to <code>2</code>, meaning we want ancestry inferred for parents and grandparents too</li>
-<li>I&rsquo;ve had minimal luck getting meaningful results from this</li>
-<li>use <code>0</code> to ignore this altogether</li>
-</ul>
-</li>
-<li>
-<p><code>LOCPRIOR</code> is a yes (<code>1</code>) or no (<code>0</code>)  of using the LOCPRIOR model</p>
-<ul>
-<li>use sampling locations as prior information to assist the clustering–for use with data sets where the signal of structure is relatively weak</li>
-<li>location information can sometimes be the thing that gives Structure enough power to identify clusters</li>
-</ul>
-</li>
-<li>
-<p><code>UPDATEFREQ</code>  is an integer that prints some information in fixed intervals on the screen as the program runs.</p>
-<ul>
-<li>think of it like a status bar</li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">extraparam</th>
+<th style="text-align:left">what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>NOADMIX</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether to use the admixture model, i.e. are we allowing the model to consider admixed individuals (<code>1</code>) or can we say every individual is purely from a single population (<code>0</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LINKAGE</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>)  of whether to incorporate the linkage information mentioned above</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>USEPOPINFO</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>)  of using the <code>POPINFO</code> model (corresponds to the <code>POPFLAG</code> above). This model uses sampling locations to test for migrants or hybrids</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GENSBACK</code></td>
+<td style="text-align:left">an integer of how many generations back to make assignment inferences for. In the example extraparams, this is set to <code>2</code>, meaning we want ancestry inferred for parents and grandparents too. I&rsquo;ve had minimal luck getting meaningful results from this. Use <code>0</code> to ignore this altogether.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LOCPRIOR</code></td>
+<td style="text-align:left">a yes (<code>1</code>) or no (<code>0</code>)  of using the <code>LOCPRIOR</code> model. Use sampling locations as prior information to assist the clustering–for use with data sets where the signal of structure is relatively weak. Location information can sometimes be the thing that gives Structure enough power to identify clusters.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>UPDATEFREQ</code></td>
+<td style="text-align:left">an integer that prints some information in fixed intervals on the screen as the program runs. Think of it like a progress bar.</td>
+</tr>
+</tbody>
+</table>
 <p>The Structure docs say it&rsquo;s generally ok to try running the program without tweaking those specific model parameters like the alphas, lambda, and priors.</p>
 <h2 id="optimizing-k">Optimizing K</h2>
 <p>Since Structure can&rsquo;t tell you what the best K (<code>MAXPOPS</code>) is, you need to find that out yourself (yay). To do that, you need to run Structure for a range of <code>MAXPOPS</code> values and compare their likelihoods. According to the scrolls, the run with the highest likelihood is the optimal K, but take that with a grain of salt because you can&rsquo;t run Structure for K=1 (panmixia might be what&rsquo;s happening), and minimal differences in likelihoods obscure K optimization. See &ldquo;An advanced case&rdquo; below for a quick tip.</p>
@@ -505,14 +483,12 @@ seg_003 2 1 5 001 001 001
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>path/to/structure -m mainparams.file -e extraparams.file
 </span></span></code></pre></div><p>Structure lets you add command line arguments to override some of the params in the files. I generally don&rsquo;t recommend doing this; keeping distinct copies of param files with organized naming schemes will definitely help future-proof your work. An exception to the rule is:</p>
 <ul>
-<li>
-<p><code>-K</code>  change the <code>MAXPOPS</code> parameter</p>
+<li><code>-K</code>  change the <code>MAXPOPS</code> parameter
 <ul>
 <li>e.g. <code>structure -K 5 -m mainparams.file -e extraparams.file</code></li>
 </ul>
 </li>
-<li>
-<p><code>-D</code> set the randomization seed for the run</p>
+<li><code>-D</code> set the randomization seed for the run
 <ul>
 <li>this is useful if you want exact reproducible results</li>
 <li>e.g. <code>structure -D 6969 -m mainparams.file -e extraparams.file</code></li>
@@ -535,23 +511,19 @@ seg_003 2 1 5 001 001 001
 <h2 id="visualizing-the-results">Visualizing the results</h2>
 <p>Options include:</p>
 <ul>
-<li>
-<p>Using the Structure GUI to load in and visualize your results for basic data exploration.</p>
+<li>Using the Structure GUI to load in and visualize your results for basic data exploration.
 <ul>
 <li>life hack: save as a .pdf and open in Illustrator/Inkscape to manually edit colors</li>
 </ul>
 </li>
-<li>
-<p>Apparently <a href="http://omicsspeaks.com/strplot2/">this website</a> is a thing</p>
-</li>
-<li>
-<p><a href="http://www.thecoalescent.com/plotstr">This script</a> seems promising too and is probably what I&rsquo;d lean towards outside of writing my own</p>
-</li>
+<li>Apparently <a href="http://omicsspeaks.com/strplot2/">this website</a> is a thing</li>
+<li><a href="http://www.thecoalescent.com/plotstr">This script</a> seems promising too and is probably what I&rsquo;d lean towards outside of writing my own</li>
+<li>Of course I wrote my own script! <a href="https://github.com/pdimens/bio-bin/blob/main/visualization/plot_structure.r">Here is where it lives</a></li>
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Most of the woes with Structure are just getting the input file and params to agree with each other.</p>
 <p><strong>If using a Windows machine in any part of preparing your data for Structure</strong>:</p>
-<p>Just play it safe and run the file through the command line tool <code>dos2unix</code>.  Sometimes errors happen just because of the Windows CRLF line endings. When in doubt, make sure your files(s) use the Unix &ldquo;LF&rdquo; endings (default for macOS and Linux) and use UT-8 encoding (default for most things).</p>
+<p>Play it safe and run the file through the GNU command line tool <a href="https://linux.die.net/man/1/dos2unix">dos2unix</a>.  Sometimes errors happen just because of the Windows CRLF line endings. When in doubt, make sure your files(s) use the Unix &ldquo;LF&rdquo; endings (default for macOS, Linux, BSD) and use UT-8 encoding (default for most things).</p>
 
           </article>
         </div>
@@ -568,8 +540,7 @@ seg_003 2 1 5 001 001 001
   <ul>
     <li><a href="#background">Background</a></li>
     <li><a href="#requirements">Requirements</a></li>
-    <li><a href="#example-file">Example file</a></li>
-    <li><a href="#input-file-format">Input File Format</a>
+    <li><a href="#input-files">Input Files</a>
       <ul>
         <li></li>
         <li><a href="#extra-columns">Extra Columns</a></li>
@@ -579,9 +550,9 @@ seg_003 2 1 5 001 001 001
     <li><a href="#parameter-files">Parameter files</a>
       <ul>
         <li><a href="#mainparams">mainparams</a></li>
+        <li><a href="#extraparams">extraparams</a></li>
       </ul>
     </li>
-    <li><a href="#extraparams">extraparams</a></li>
     <li><a href="#optimizing-k">Optimizing K</a></li>
     <li><a href="#running-the-program">Running the program</a>
       <ul>
@@ -604,6 +575,8 @@ seg_003 2 1 5 001 001 001
             <ul class="tags-ul list-unstyled list-inline">
               
               <li class="list-inline-item"><a href="https://pdimens.github.io/tags/tutorial" target="_blank">Tutorial</a></li>
+              
+              <li class="list-inline-item"><a href="https://pdimens.github.io/tags/software" target="_blank">Software</a></li>
               
             </ul>
           </aside>
@@ -750,15 +723,13 @@ seg_003 2 1 5 001 001 001
     </div>
 </div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
     }
-
 </script>
+
+
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
         if (document.body.className.includes("dark")) {

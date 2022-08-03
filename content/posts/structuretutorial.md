@@ -5,6 +5,8 @@ draft: false
 author: "Pavel Dimens"
 tags:
   - Tutorial
+  - Software
+image: /images/structure/structure.png
 description: "A gentle introduction to STRUCTURE"
 toc: 
 ---
@@ -12,9 +14,9 @@ toc:
 
 ## Background
 
-Structure is a brilliant intellectual work. Structure also sucks in terms of user friendliness. 
+Structure is a brilliant intellectual work. Structure is also not user-friendly. In fact, one might go so far as to say it's sometimes user-hostile. 
 
-**Why it sucks**
+**User hostility**
 
 - extremely unforgiving input file parsing
 - [manual is not terribly user friendly](https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf)
@@ -31,36 +33,32 @@ So, using Structure is largely about navigating these pitfalls. First, we're goi
 
 ## Requirements
 
-2. Structure Downloaded from [here](https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/html/structure.html) (a conda installation probably works too)
+1. Structure Downloaded from [here](https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/html/structure.html) (a conda installation probably works too)
 2. Java installed on the system if using the GUI (we aren't)
 3. Patience
 
-## Example file
+## Input Files
 
-An example of a real-world Structure input file can be found [here](https://github.com/pdimens/C.acronotus-data-2019/blob/master/acro_assignment_allloci_stru_input). Snippets of it will be used for explanations below.
-
-## Input File Format
-
-Structure has a **very** specific file format and it's awful. The first row is the locus names (optional), and the subsequent rows are the sample names (optional) and their genotypes, space delimited. You can also have extra rows after the locus header, and you'll need to specify how many extra rows in the "params" files later if you do. After the header (if it's there), each sample gets *ploidy* number of rows (or not), one for each allele per locus. You can force it to be one sample per row, but I assure you that's a nightmare waiting to happen for non-haploids.
+Structure has a **very** specific file format and it's awful. The first row is the locus names (optional), and the subsequent rows are the sample names (optional) and their genotypes, space delimited. You can also have extra rows after the locus header, and you'll need to specify how many extra rows in the "params" files later if you do. After the header (if it's there), each sample gets *ploidy* number of rows (or not), one for each allele per locus. You can force it to be one sample per row, but I assure you that's a nightmare waiting to happen for non-haploids. You see why this is frustrating? An example of a real-world Structure input file can be found [here](https://github.com/pdimens/C.acronotus-data-2019/blob/master/acro_assignment_allloci_stru_input). Snippets of it will be used for explanations below.
 
 #### Example input file (diploid)
 
 ```
-  contig_35208 contig_23109 contig_4493  <--- header of loci
-cca_001 002 -9 001     <--- sample cca_001, first allele per locus
-cca_001 001 -9 002     <--- sample cca_001, second allele per locus
-cca_002 001 001 001    <--- sample cca_002, first allele per locus
-cca_002 002 002 001    <--- sample cca_002, second allele per locus
+  snp_1 snp_2 snp_3  <--- header of loci
+ind_001 002 -9 001     <--- sample ind_001, first allele per locus
+ind_001 001 -9 002     <--- sample ind_001, second allele per locus
+ind_002 001 001 001    <--- sample ind_002, first allele per locus
+ind_002 002 002 001    <--- sample ind_002, second allele per locus
 ```
 
-The `<--- some words` are for teaching purposes, don't actually include that in your input file or Structure will yell at you. The file continues like that till the very end. Missing genotypes are traditionally coded as `-9 ` (no idea why) , and you can change that in the `mainparams` with the `MISSING` parameter.
+The `<--- some words` are for teaching purposes, don't actually include that in your input file or Structure will yell at you. The file continues like that until the very end. Missing genotypes are traditionally coded as `-9 ` (no idea why) , and you can change that in the `mainparams` with the `MISSING` parameter. Pro tip: just keep missing as `-9`.
 
 ### Extra Columns
 
 Unlike extra rows (which probably have some use somewhere), extra columns are very important for the input files.  Extra columns go in between the sample name and the first genotype and have to be noted in the params files (explained below). Here is an example of a snippet of a real-world structure file with extra columns:
 
 ```
-  contig_35208 contig_23109 contig_4493
+  snp_1 snp2 snp_3
 cca_001 1 1 1 002 001 001
 cca_001 1 1 1 001 001 002
 cca_002 1 1 1 001 001 001
@@ -111,13 +109,13 @@ This is extra information to let you make stuff more hierarchical, of sorts.  Al
 
 ### Creating the input file
 
-Options include [PGDSpider2](http://www.cmpg.unibe.ch/software/PGDSpider/), [R::radiator](https://github.com/thierrygosselin/radiator), and probably some other ones. You don't want to create this file by hand.  If you already have a Genepop formatted file on hand, I made a script that converts it into Structure format via radiator [here](https://github.com/pdimens/bio-bin/blob/master/genepop2structure).
+Options include [PGDSpider2](http://www.cmpg.unibe.ch/software/PGDSpider/), [R::radiator](https://github.com/thierrygosselin/radiator), and probably some other ones. You don't want to create this file by hand.  If you already have a Genepop formatted file on hand, I made a script that converts it into Structure format via radiator [here](https://github.com/pdimens/bio-bin/blob/master/genepop2structure). You can also use [PopGen.jl](https://github.com/BioJulia/PopGen.jl) to read in from genepop/vcf/plink/csv and write to structure of faststructure formats.
 
 
 
 ## Parameter files
 
-You can run Structure and manually specify every parameter, but absolutely don't do that. Instead, use `mainparams` and `extraparams` files.
+You can run Structure and manually specify every parameter as arguments to the comman line call, but absolutely don't do that. Instead, use `mainparams` and `extraparams` files.
 
 ### mainparams
 
@@ -149,51 +147,34 @@ Here is what your mainparams file should look like (yes, including the `#define`
 
 Let's go through them:
 
-- `OUTFILE` is the name you want the output file to have (no spaces) . **Don't use quotes**.
+| mainparam | what it does |
+|:---|:---|
+| `OUTFILE` | is the name you want the output file to have (no spaces) . **Don't use quotes**. |
+| `INFILE` | the name of your input file. Also no spaces, also don't use quotes. |
+| `NUMINDS` | the number of samples in your input file. Structure refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this. |
+| `NUMLOCI` | the number of loci in your input file. Structure also refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.|
+| `LABEL` | yes (`1`) or no (`0`) of whether your input file contains sample names. The example input files above would use `LABEL 1`|
+| `POPDATA`, `POPFLAG`, and `LOCDATA`| are yes (`1`) or no (`0`) and we described in the previous section. We would set each of these to `1` for the example input file above |
+| `PHENOTYPE` | if phenotype info is included. Honestly never used this and don't know how to. |
+| `MARKERNAMES` | yes (`1`) or no (`0`) of whether your input file contains a header of locus names. The example input files above would use `MARKERNAMES 1` |
+| `MAPDISTANCES` | whether you have an extra row of map distances between neighboring loci. |
+| `ONEROWPERIND` | yes (`1`) or no (`0`) of whether you have a single row per sample. The example input files above would use `ONEROWPERIND 0`. It's iterally the worst format ever, don't do this. |
+| `PHASEINFO` | yes (`1`) or no (`0`) of whether you have an extra row of haplotype phase information after each sample row. This is exclusive to the other linkage-aware stuff Structure can do |
+| `PHASED` | yes (`1`) or no (`0`) of whether your haplotypes are correctly phased, whatever that means. This is exclusive to the other linkage-aware stuff Structure can do and used in tandem with `PHASEINFO` |
+| `RECESSIVEALLELES` | indicates the next row of the data file contains a list of L integers indicating which alleles are recessive at each locus. Setting this to `1` implies that the dominant marker model is in use. Never used this. Would be `0` for the examples above |
+| `EXTRACOLS` | the number of extra columns unrelated to Structure that the software should ignore. I would avoid adding anything you don't need to Structure input files. |
+| `MISSING` | the value missing genotypes/alleles are coded as |
+| `PLOIDY` | the ploidy of your data. Structure needs this to read the rows correctly. It might have a math component too. Who knows. |
+| `MAXPOPS` | the number of groups Structure will try to cluster your data into. This parameter name is kind of misleading because it's a fixed number, not iteratively trying 1:MAXPOPS. See the section below about adjusting `MAXPOPS` |
+| `BURNIN` | the number of iterations to use at the burn in for the Bayesian model. Ideally you'd want the model to already converge by the time it finishes the burn in, so you'd want this to be a reasonably high number. 1 million in the example above was probably overkill for the data it was used on (212 samples X 2204 snp loci) |
+| `NUMREPS` | the number of iterations to run the model after the burn in completes. You also want this to be a reasonably high number. 1 million in the example above was overkill for the data it was used on, 500k or 750k was probably enough. Structure took 22-24hrs to complete with those `BURNIN` and `NUMREPS` parameters on the 212x2204 data. |
 
-- `INFILE` is the name of your input file. Also no spaces, also don't use quotes.
-- `NUMINDS` the number of samples in your input file. 
-  - Structure refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.
-- `NUMLOCI` is the number of loci in your input file
-  - Structure also refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.
-- `LABEL` is a yes (`1`) or no (`0`) of whether your input file contains sample names. 
-  - the example input files above would use `LABEL 1`
-- `POPDATA`, `POPFLAG`, and `LOCDATA` are yes (`1`) or no (`0`) and we described in the previous section.
-  - We would set each of these to `1` for the example input file above
-- `PHENOTYPE` if phenotype info is included. Honestly never used this and don't know how to.
-- `MARKERNAMES` is a yes (`1`) or no (`0`) of whether your input file contains a header of locus names
-  - the example input files above would use `MARKERNAMES 1`
-- `MAPDISTANCES` is whether you have an extra row of map distances between neighboring loci.
-- `ONEROWPERIND` is a yes (`1`) or no (`0`) of whether you have a single row per sample
-  - the example input files above would use `ONEROWPERIND 0`
-  - literally the worst format ever, don't do this
-- `PHASEINFO` is a yes (`1`) or no (`0`) of whether you have an extra row of haplotype phase information after each sample row
-  - this is exclusive to the other linkage-aware stuff Structure can do
-- `PHASED` is a yes (`1`) or no (`0`) of whether your haplotypes are correctly phased, whatever that means.
-  - this is exclusive to the other linkage-aware stuff Structure can do and used in tandem with `PHASEINFO`
-- `RECESSIVEALLELES` indicates the next row of the data file contains a list of L integers indicating which alleles are recessive at each locus. Setting this to 1 implies that the dominant marker model is in use.
-  - Never used this. Would be `0` for the examples above
-- `EXTRACOLS` the number of extra columns unrelated to Structure that the software should ignore.
-  - I would avoid adding anything you don't need to Structure input files
-- `MISSING` the value missing genotypes/alleles are coded as
-- `PLOIDY` the ploidy of your data
-  - Structure needs this to read the rows correctly. It might have a math component too. Who knows.
-- `MAXPOPS` the number of groups Structure will try to cluster your data into
-  - this parameter name is kind of misleading because it's a fixed number, not iteratively trying 1:MAXPOPS
-  - see the section below about adjusting `MAXPOPS`
-- `BURNIN` the number of iterations to use at the burn in for the Bayesian model.
-  - Ideally you'd want the model to already converge by the time it finishes the burn in, so you'd want this to be a reasonably high number
-  - 1million in the example above was probably a bit overkill for the data it was used on (212 samples X 2204 snp loci)
-- `NUMREPS` the number of iterations to run the model after the burn in completes
-  - You also want this to be a reasonably high number
-  - 1million in the example above was a bit overkill for the data it was used on, 500k or 750k was probably enough
-  - Structure took 22-24hrs to complete with those `BURNIN` and `NUMREPS` parameters on the 212x2204 data
 
 There are a few more advanced "main" parameters, see [the documentation](https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf) for more information.
 
 
 
-## extraparams
+### extraparams
 
 If you thought the mainparams were exhaustive, well, the extraparams are even more so. This file contains parameters that govern the kind of models Structure runs and how it runs them. Here is what the extraparams file looks like:
 
@@ -232,21 +213,14 @@ If you thought the mainparams were exhaustive, well, the extraparams are even mo
 
 These parameters are super specific and we're only going to cover a few of them, so I would recommend looking at the [the documentation](https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf) to make sense of it all.
 
-- `NOADMIX` is a yes (`1`) or no (`0`) of whether to use the admixture model
-  - i.e. are we allowing the model to consider admixed individuals (`1`) or can we say every individual is purely from a single population (`0`) 
-- `LINKAGE` is a yes (`1`) or no (`0`)  of whether to incorporate the linkage information mentioned above
-- `USEPOPINFO` is a yes (`1`) or no (`0`)  of using the POPINFO model (corresponds to the `POPFLAG` above)
-  - This model uses sampling locations to test for migrants or hybrids
-- `GENSBACK` is an integer of how many generations back to make assignment inferences for
-  - in the example extraparams, this is set to `2`, meaning we want ancestry inferred for parents and grandparents too
-  - I've had minimal luck getting meaningful results from this
-  - use `0` to ignore this altogether
-- `LOCPRIOR` is a yes (`1`) or no (`0`)  of using the LOCPRIOR model
-  - use sampling locations as prior information to assist the clustering–for use with data sets where the signal of structure is relatively weak
-  - location information can sometimes be the thing that gives Structure enough power to identify clusters
-
-- `UPDATEFREQ`  is an integer that prints some information in fixed intervals on the screen as the program runs.
-  - think of it like a status bar
+| extraparam | what it does |
+|:---|:---|
+| `NOADMIX` | yes (`1`) or no (`0`) of whether to use the admixture model, i.e. are we allowing the model to consider admixed individuals (`1`) or can we say every individual is purely from a single population (`0`) |
+| `LINKAGE` | yes (`1`) or no (`0`)  of whether to incorporate the linkage information mentioned above |
+| `USEPOPINFO` | yes (`1`) or no (`0`)  of using the `POPINFO` model (corresponds to the `POPFLAG` above). This model uses sampling locations to test for migrants or hybrids |
+| `GENSBACK` | an integer of how many generations back to make assignment inferences for. In the example extraparams, this is set to `2`, meaning we want ancestry inferred for parents and grandparents too. I've had minimal luck getting meaningful results from this. Use `0` to ignore this altogether. |
+| `LOCPRIOR` | a yes (`1`) or no (`0`)  of using the `LOCPRIOR` model. Use sampling locations as prior information to assist the clustering–for use with data sets where the signal of structure is relatively weak. Location information can sometimes be the thing that gives Structure enough power to identify clusters. |
+| `UPDATEFREQ` | an integer that prints some information in fixed intervals on the screen as the program runs. Think of it like a progress bar. |
 
 The Structure docs say it's generally ok to try running the program without tweaking those specific model parameters like the alphas, lambda, and priors.
 
@@ -274,7 +248,6 @@ Structure lets you add command line arguments to override some of the params in 
 
 - `-K`  change the `MAXPOPS` parameter
   - e.g. `structure -K 5 -m mainparams.file -e extraparams.file`
-
 - `-D` set the randomization seed for the run
   - this is useful if you want exact reproducible results
   - e.g. `structure -D 6969 -m mainparams.file -e extraparams.file`
@@ -302,9 +275,9 @@ Options include:
 
 - Using the Structure GUI to load in and visualize your results for basic data exploration.
   - life hack: save as a .pdf and open in Illustrator/Inkscape to manually edit colors
-
 - Apparently [this website](http://omicsspeaks.com/strplot2/) is a thing 
 - [This script](http://www.thecoalescent.com/plotstr) seems promising too and is probably what I'd lean towards outside of writing my own
+- Of course I wrote my own script! [Here is where it lives](https://github.com/pdimens/bio-bin/blob/main/visualization/plot_structure.r)
 
 
 
@@ -314,4 +287,4 @@ Most of the woes with Structure are just getting the input file and params to ag
 
 **If using a Windows machine in any part of preparing your data for Structure**:
 
-Just play it safe and run the file through the command line tool `dos2unix`.  Sometimes errors happen just because of the Windows CRLF line endings. When in doubt, make sure your files(s) use the Unix "LF" endings (default for macOS and Linux) and use UT-8 encoding (default for most things). 
+Play it safe and run the file through the GNU command line tool [dos2unix](https://linux.die.net/man/1/dos2unix).  Sometimes errors happen just because of the Windows CRLF line endings. When in doubt, make sure your files(s) use the Unix "LF" endings (default for macOS, Linux, BSD) and use UT-8 encoding (default for most things). 

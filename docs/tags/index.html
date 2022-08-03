@@ -204,6 +204,23 @@ Tags | Pavel Dimens
         <div class="col-lg-4 col-md-6 my-3">
             <div class="card h-100">
                 <div class="card-body bg-transparent p-4 shadow-sm">
+                    <a href="/tags/software/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Software">Software</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="mt-auto post-footer bg-transparent py-3">
+                    <span class="float-start bg-transparent">July 30, 2022</span>
+                    <a href="/tags/software/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 my-3">
+            <div class="card h-100">
+                <div class="card-body bg-transparent p-4 shadow-sm">
                     <a href="/tags/tutorial/" class="primary-font card-title">
                         <h5 class="card-title bg-transparent" title="Tutorial">Tutorial</h5>
                     </a>
@@ -361,15 +378,13 @@ Tags | Pavel Dimens
     </div>
 </div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
     }
-
 </script>
+
+
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
         if (document.body.className.includes("dark")) {

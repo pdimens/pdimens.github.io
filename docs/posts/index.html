@@ -208,9 +208,9 @@ Posts | Pavel Dimens
                         <h5 class="card-title bg-transparent" title="Using Structure">Using Structure</h5>
                     </a>
                     <div class="card-text secondary-font">
-                        <p>Background Structure is a brilliant intellectual work. Structure also sucks in terms of user friendliness.
-Why it sucks
-extremely unforgiving input file parsing manual is not terribly user friendly program is not user friendly GUI version isn&rsquo;t great for long runs (i.e. modern data) two …</p>
+                        <p>Background Structure is a brilliant intellectual work. Structure is also not user-friendly. In fact, one might go so far as to say it&rsquo;s sometimes user-hostile.
+User hostility
+extremely unforgiving input file parsing manual is not terribly user friendly program is not user friendly GUI version …</p>
                     </div>
                 </div>
                 <div class="mt-auto post-footer bg-transparent py-3">
@@ -438,15 +438,13 @@ As I&rsquo;m hoping you&rsquo;ve already read, I talk a lot about making your ow
     </div>
 </div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
     }
-
 </script>
+
+
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
         if (document.body.className.includes("dark")) {
