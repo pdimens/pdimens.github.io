@@ -1,6 +1,6 @@
 ---
-title: "Using STRUCTURE"
-date: 2022-08-30T23:29:21+05:30
+title: "Using Structure"
+date: 2022-07-30T23:29:21+05:30
 draft: false
 author: "Pavel Dimens"
 tags:
