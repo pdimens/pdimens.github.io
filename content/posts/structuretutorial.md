@@ -115,7 +115,7 @@ Options include [PGDSpider2](http://www.cmpg.unibe.ch/software/PGDSpider/), [R::
 
 ## Parameter files
 
-You can run Structure and manually specify every parameter as arguments to the comman line call, but absolutely don't do that. Instead, use `mainparams` and `extraparams` files.
+You can run Structure and manually specify every parameter as arguments to the command line call, but absolutely don't do that. Instead, use `mainparams` and `extraparams` files.
 
 ### mainparams
 

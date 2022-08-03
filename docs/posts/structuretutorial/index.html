@@ -289,7 +289,7 @@ seg_003 2 1 5 001 001 001
 <h3 id="creating-the-input-file">Creating the input file</h3>
 <p>Options include <a href="http://www.cmpg.unibe.ch/software/PGDSpider/">PGDSpider2</a>, <a href="https://github.com/thierrygosselin/radiator">R::radiator</a>, and probably some other ones. You don&rsquo;t want to create this file by hand.  If you already have a Genepop formatted file on hand, I made a script that converts it into Structure format via radiator <a href="https://github.com/pdimens/bio-bin/blob/master/genepop2structure">here</a>. You can also use <a href="https://github.com/BioJulia/PopGen.jl">PopGen.jl</a> to read in from genepop/vcf/plink/csv and write to structure of faststructure formats.</p>
 <h2 id="parameter-files">Parameter files</h2>
-<p>You can run Structure and manually specify every parameter as arguments to the comman line call, but absolutely don&rsquo;t do that. Instead, use <code>mainparams</code> and <code>extraparams</code> files.</p>
+<p>You can run Structure and manually specify every parameter as arguments to the command line call, but absolutely don&rsquo;t do that. Instead, use <code>mainparams</code> and <code>extraparams</code> files.</p>
 <h3 id="mainparams">mainparams</h3>
 <p>Here is what your mainparams file should look like (yes, including the <code>#define</code> part):</p>
 <pre tabindex="0"><code>#define OUTFILE some_output_name
