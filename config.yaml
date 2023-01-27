@@ -106,8 +106,8 @@ params:
       fontAwesomeIcons:
         - icon: fab fa-github
           url: https://www.github.com/pdimens
-        - icon: fab fa-twitter
-          url: https://www.twitter.com/pvdimens
+        - icon: fab fa-mastodon
+          url: https://fediscience.org/@pvdimens
       customIcons:
         - icon: images/popgen.svg
           url: "https://biojulia.net/PopGen.jl/"
@@ -311,7 +311,20 @@ params:
             url: mailto:?subject=PopGenjl
           - icon: fab fa-github
             url: https://github.com/BioJulia/PopGen.jl
-
+      - title: Harpy
+        content: Haplotagging data processing pipeline
+        image: /images/harpy.png
+        featured:
+          name: explore
+          link: https://pdimens.github.io/HARPY/#/
+        badges:
+          - "Pipeline"
+          - "Analysis"
+        links:
+          - icon: fa fa-envelope
+            url: mailto:?subject=Harpy
+          - icon: fab fa-github
+            url: https://github.com/pdimens/harpy
       - title: LepWrap
         content: A Snakemake-based pipeline to run LepMap3 and LepAnchor
         image: /images/lepwrap.png
@@ -326,7 +339,6 @@ params:
             url: mailto:?subject=LepWrap
           - icon: fab fa-github
             url: https://github.com/pdimens/lepwrap
-
       - title: Gust
         content: A Snakemake-based pipeline for whole-genome comparison and phyolgenetic analysis using genome assemblies
         image: /images/gust.png
