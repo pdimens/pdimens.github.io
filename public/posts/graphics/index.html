@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+<head><script src="/github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=github.io/livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=images/hero.svg type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+  
+
+
+<meta property="og:url" content="http://localhost:1313/github.io/posts/graphics/">
+  <meta property="og:site_name" content="Pavel Dimens">
+  <meta property="og:title" content="Graphic Design Tutorial">
+  <meta property="og:description" content="Learn the basics of making a vector graphic in Inkscape">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-04-03T23:29:21+05:30">
+    <meta property="article:modified_time" content="2021-04-03T23:29:21+05:30">
+    <meta property="article:tag" content="Graphics">
+    <meta property="article:tag" content="Tutorial">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Graphic Design Tutorial">
+  <meta name="twitter:description" content="Learn the basics of making a vector graphic in Inkscape">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="Learn the basics of making a vector graphic in Inkscape">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Graphic Design Tutorial | Pavel Dimens
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg ">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/github.io">
+                
+                <img src="images/hero.svg" width="30" height="30"
+                    class="d-inline-block align-top">
+                Pavel Dimens
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io/posts" title="Helpful posts">
+                            
+                            Tutorials
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Graphic Design Tutorial</h1>
+            <div class="text-center">
+              
+                Pavel Dimens
+                <small>|</small>
+              
+              Apr 3, 2021
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/graphics-tutorial/preview.png" alt="Graphic Design Tutorial">
+          </div>
+          
+          <article class="page-content  p-2">
+          <p>Let&rsquo;s make a graphic!</p>
+<p>As I&rsquo;m hoping you&rsquo;ve already read, I talk a lot about making your own graphics. Well, to supplement that, I want to include a brief tutorial on how to make the &ldquo;minimal&rdquo; style graphics that I use for my own work.
+This is done entirely in Inkscape (free and open source!), and working with only my laptop&rsquo;s touchpad and taking all the screenshots, this took me me just about 45min to make. Hope it helps! For brevity, I can&rsquo;t cover all the possible topics and I don&rsquo;t have the time to create and edit a time-lapse video of making it, so let&rsquo;s give it a whirl!</p>
+<h2 id="lets-make-a-red-drum">Let&rsquo;s make a Red Drum</h2>
+<p>Doing a basic online image search for Scaenops ocellatus (red drum), I chose this image on the left to start with. The graphic you see on the right is the end-product.</p>
+<img src="/images/graphics-tutorial/preview.png" alt="before and after"  width=100%> 
+<p><em>note</em>: for the purposes of this tutorial, I use the Illustrator keyboard bindings preset in Inkscape out of convenience, which is not the default. You can change this easily in Settings, or use the default keybindings (but be aware the letters V, A, and I will not do the same things).</p>
+<h2 id="plan-it-out">Plan it out</h2>
+<p>Sure, it looks pretty easy (and it mostly is), but to make something simple out of something complex requires a little bit of planning to map out what you want to include, which saves time downstream.</p>
+<img src="/images/graphics-tutorial/drum1.png" alt="planning it out"  width=100%> 
+<p>I don&rsquo;t actually make all these notes, but what you see is pretty much how I plan it out in my head. The fins will be separate, the tail will be separate, and the body will be done in three sections, the white belly, the mid-colored middle, and the darker top.</p>
+<h2 id="make-some-paths">Make some &ldquo;paths&rdquo;</h2>
+<p>In Illustrator, this is the Pen Tool (P), and in Inkscape, it&rsquo;s the Draw Bezier Tool. If you&rsquo;re using Illustrator shortcut configs in Inkscape like I do (in the Preferences menu), the keyboard shortcut is also (P).</p>
+<p>How it works: A <strong>path</strong> is  a series of points connected to each other by lines. To make these, you  pretty much start drawing a polygon by clicking to make a point, then  moving your mouse to another area and clicking there. The software  connects those two points with a line segment, and you just keep going.  To close your polygon, make a point on the first point you started with.  A great video tutorial on making paths can be found <a href="https://www.youtube.com/watch?v=AAgWhnf_p3k">here</a>.</p>
+<p>I started with the top part of the body, so I started  at the snout and followed the contours of the body using this (P) tool  until I made it all around and closed it on my original point.</p>
+<img src="/images/graphics-tutorial/drum2.png" alt="the first trace"  width=100%> 
+<p>You&rsquo;ll notice it looks blocky, but that&rsquo;s normal. No worries! Also, since I&rsquo;ll be making additional polygons for the mid and bottom of the body, I didn&rsquo;t need to waste time by outlining the entire body, just the part I planned on being darker.</p>
+<h2 id="get-curvy">Get curvy</h2>
+<p>We don&rsquo;t want blocky bits, this isn&rsquo;t geometric art. So, using the Node Select Tool (A in Illustrator) or (F1 in Inkscape), highlight all the points you made, and click the icon towards the top that makes them curvy and  symmetrical. Depending on how intuitively you outlined the image, it might line up really well, with only minor tweaks. You&rsquo;ll notice that once you make them curves, little &ldquo;arms&rdquo; will stick out from your points. These are called handles and you use those to shape your curves. Here&rsquo;s that path we made above, with the points (nodes) converted to curves, and shaped to how I want it.
+<img src="/images/graphics-tutorial/curves.png" alt="bezier curve tools"  width=100%></p>
+<img src="/images/graphics-tutorial/drum3.png" alt="making curves"  width=100%>
+<h2 id="rinse-and-repeat">Rinse and repeat</h2>
+<p>Well, that wasn&rsquo;t too bad, was it? If this is your first time messing with vector images, it might be a little confusing or overwhelming. But, fret not! Once you get over the hurdle of understanding what nodes, handles, and paths are, it&rsquo;s pretty easy to bend them to your will (all pun intended). For the rest of this image, you just need to
+keep making paths for the remaining body parts you mapped out.</p>
+<img src="/images/graphics-tutorial/drum4.png" alt="more curves"  width=100%>
+<p>Here, you&rsquo;ll notice that the top of the new path looks like it&rsquo;s all wrong. But, it leads me to my <strong>Pro-Tip</strong>: like  powerpoint, image editing software arranges items in ordered layers. To  exploit this feature to save time, since you&rsquo;ll have overlapping paths,  you don&rsquo;t need to outline every single detail.</p>
+<p>In the fish above, since the darker top path already  outlines the contour where the colors will be different, I don&rsquo;t need to spend time outlining that contour again when I made the mid-section. All I&rsquo;ll have  to do is make sure the top path overlaps the mid-section and all will be  well with the world. If this doesn&rsquo;t make sense now, it will later.  Promise!</p>
+<img src="/images/graphics-tutorial/drum5.png" alt="the finished curves"  width=100%> 
+<p>It might look a little hectic, but once you color it in and adjust what is above/below what, it&rsquo;ll all come together.</p>
+<h2 id="add-some-color">Add some color</h2>
+<p>To color the paths you made, you can click on them with either (V) or (A) in Illustrator and select colors from the bottom left color swatches, or use the eyedropper (i) to pick a color from the image you&rsquo;re using as reference. In Inkscape, you can select your path and use the Fill and
+Stroke dialog to color them in (I&rsquo;m not much of a fan of the swatches on the bottom of the screen), or the eyedropper tool like in Illustrator.<br>
+<img src="/images/graphics-tutorial/colorwheel.png" alt="inkscape color wheel"  width=100%></p>
+<img src="/images/graphics-tutorial/drum6.png" alt="initial coloring"  width=100%> 
+<p>Now it&rsquo;s starting to look like something! You&rsquo;ll notice we&rsquo;ll still need to change the overlapping order, but that&rsquo;s a problem for future-us.</p>
+<h2 id="say-no-to-borders">Say no to borders</h2>
+<p>My preferred style has no borders. In both Illustrator and Inkscape, outlines to things are referred to as &ldquo;Stroke,&rdquo; so we need to get rid of it. In both software, you need just set Stroke size to 0. In Illustrator, that will be on the top left when you have your path selected. In Inkscape, that will be in the Stroke and Fill dialog, under the Stroke Style tab.
+<img src="/images/graphics-tutorial/drum7.png" alt="removing borders"  width=100%></p>
+<h2 id="stack-objects-correctly">Stack objects correctly</h2>
+<p>It&rsquo;s looking like a fish! But we aren&rsquo;t quite there
+yet. The dorsal (top) fin needs to be moved to the back, and so do the bottom two fins. We also need to move the mid-section beneath the darker top section.</p>
+<p>Illustrator: <strong>Layers</strong> tab will order everything you have. You can drag and drop things in the order you want them.</p>
+<p>Inkscape: <strong>Objects</strong> dialog will be the same as above
+<img src="/images/graphics-tutorial/layers.png" alt="layers and objects"  width=100%>
+<img src="/images/graphics-tutorial/layers.png" alt="layers and objects"></p>
+<p>Clicking on either an object onscreen or one in the dialog box will highlight both, giving you a sense of what is where. You can drag and drop objects in that dialog box ,or use the blue arrows at the bottom for the same effect.
+<img src="/images/graphics-tutorial/drum8.png" alt="almost finished"  width=100%></p>
+<h2 id="final-touches">Final touches</h2>
+<p>Once you&rsquo;re at this point, it&rsquo;s up to you how you want to go about polishing it up. I make sure everything is lined up correctly, fix up certain features, etc. In this case, since red drum aren&rsquo;t actually red, I used a different drawing to reference the colors to use for this graphic.
+<img src="/images/graphics-tutorial/drum9.png" alt="final touches"  width=100%></p>
+<p>There you have it! I cannot stress how readily available and easy to understand online tutorials are for these software. I know I kind of rushed through some of this, but the overview is here. If you don&rsquo;t quite understand how we got to this point, I suggest looking up a tutorial for bezier making, and one for coloring. Those two fundamental skills should take less than 20 minutes to figure out. Good luck!</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lets-make-a-red-drum">Let&rsquo;s make a Red Drum</a></li>
+    <li><a href="#plan-it-out">Plan it out</a></li>
+    <li><a href="#make-some-paths">Make some &ldquo;paths&rdquo;</a></li>
+    <li><a href="#get-curvy">Get curvy</a></li>
+    <li><a href="#rinse-and-repeat">Rinse and repeat</a></li>
+    <li><a href="#add-some-color">Add some color</a></li>
+    <li><a href="#say-no-to-borders">Say no to borders</a></li>
+    <li><a href="#stack-objects-correctly">Stack objects correctly</a></li>
+    <li><a href="#final-touches">Final touches</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/github.io/tags/graphics"
+                target="_blank"
+              >Graphics</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/github.io/tags/tutorial"
+                target="_blank"
+              >Tutorial</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fgraphics%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Graphic%20Design%20Tutorial&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fgraphics%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Graphic%20Design%20Tutorial: http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fgraphics%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Graphic%20Design%20Tutorial&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fgraphics%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  false ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:1313/github.io/" title="Pavel Dimens">
+                        <img alt="Footer logo" src="images/hero.svg"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2024  All Rights Reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
+    }
+</script>
+
+
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

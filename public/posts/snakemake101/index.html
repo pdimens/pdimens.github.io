@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html>
+
+<head><script src="/github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=github.io/livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=images/hero.svg type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+  
+
+
+<meta property="og:url" content="http://localhost:1313/github.io/posts/snakemake101/">
+  <meta property="og:site_name" content="Pavel Dimens">
+  <meta property="og:title" content="Snakemake 101">
+  <meta property="og:description" content="A gentle introduction into Snakemake">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-07-03T23:29:21+05:30">
+    <meta property="article:modified_time" content="2022-07-03T23:29:21+05:30">
+    <meta property="article:tag" content="Tutorial">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Snakemake 101">
+  <meta name="twitter:description" content="A gentle introduction into Snakemake">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="A gentle introduction into Snakemake">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Snakemake 101 | Pavel Dimens
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg ">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/github.io">
+                
+                <img src="images/hero.svg" width="30" height="30"
+                    class="d-inline-block align-top">
+                Pavel Dimens
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io/posts" title="Helpful posts">
+                            
+                            Tutorials
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Snakemake 101</h1>
+            <div class="text-center">
+              
+                Pavel Dimens
+                <small>|</small>
+              
+              Jul 3, 2022
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/snakemake/snakemake.jpg" alt="Snakemake 101">
+          </div>
+          
+          <article class="page-content  p-2">
+          <h2 id="install-snakemake">Install Snakemake</h2>
+<p>To simplify this tutorial, install Snakemake using conda. See the conda tutorial on this site if you need guidance for that process.</p>
+<p><strong>Create conda environment with snakemake installation</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda create -n snake_env
+</span></span></code></pre></div><p><strong>Activate the environment and install snakemake into it</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda activate snake_env
+</span></span><span style="display:flex;"><span>conda install -c bioconda snakemake
+</span></span><span style="display:flex;"><span>conda install pydot  <span style="color:#75715e"># will let us see graphs of the workflows</span>
+</span></span></code></pre></div><p><strong>Create a new directory for us to play around in</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir snaketest
+</span></span></code></pre></div><h2 id="create-a-snakefile">Create a Snakefile</h2>
+<p>All Snakemake workflows require a &ldquo;Snakefile&rdquo;. This is a file that dictates the workflow, including inputs/outputs, commands, etc. Snakefiles are easy to read after you learn the basics (which you will!). For simplicity, we will call our snakefile &ldquo;Snakefile&rdquo;, but you can name it anything.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch Snakefile
+</span></span></code></pre></div><h3 id="snakefile-keywords">Snakefile keywords</h3>
+<p>Phew, good job! Now let&rsquo;s cover some basics about what the snakemake syntax looks like. The syntax is something of a hybrid between Python and YAML (Yet Another Markdown Language). You specify rules with the phrase <code>rule ____:</code> where the underline is the name you want for the rule. Then beneath the rule name, you will tab-indent (in classic Python and YAML fashion) and use a series of keywords followed by a colon (<code>:</code>) to specify what the rule does. The most common keywords are</p>
+<ul>
+<li><code>input:</code>  - the input file or files for the rule</li>
+<li><code>output:</code> the output file or files for the rule</li>
+<li><code>log:</code> output files for the rule that are ignored by rule-matching</li>
+<li><code>message:</code> helpful text when the rule is running</li>
+<li><code>threads:</code> number of threads to use for the rule</li>
+<li><code>params:</code> any miscellaneous parameters that may be relevant for <code>script</code>, <code>shell</code>, or <code>wrapper</code></li>
+<li><code>shell:</code> one or multiple shell (bash) commands</li>
+<li><code>script:</code> one or more python commands</li>
+<li><code>wrapper:</code> advanced scripts compatible with snakemake</li>
+</ul>
+<p>All Snakefiles require a <code>rule all:</code> at the top with an <code>input:</code> keyword that specifies the file targets you want at the very end of the pipeline. Snakemake takes those file targets and reads your Snakefile backwards to figure out what order the rules need to be run to create those final files given the inputs/outputs of all the rules and what files are and aren&rsquo;t present in your working directory. You can think of snakemake as trying to do the least amount of work necessary to accomplish the goal you give it.</p>
+<p>There are lots of other moving pieces in snakemake than are explained in this tutorial, like config.yaml files, splitting Snakefiles into smaller rulesets, using raw python code, cluster scheduling, etc. For those advanced concepts, see the snakemake documentation.</p>
+<h3 id="graph-the-workflow">Graph the workflow</h3>
+<p>At any point, you can have snakemake create a directed acyclic graph (&ldquo;DAG&rdquo;) of your workflow, which can be pretty handy. Here is a DAG of the very last Snakefile we create in this tutorial.</p>
+<pre tabindex="0"><code>snakemake -s Snakefile --rulegraph | dot -Tpng &gt; rulegraph.png
+</code></pre><p>These can get fairly complex, like the one used for <code>LepWrap</code>:
+<img src="/images/snakemake/LepMap.rulegraph.png" alt="software options"  width=70%></p>
+<h2 id="babys-first-snakefile">Baby&rsquo;s first Snakefile</h2>
+<p>And lets add the first rule to the file, the <code>rule all</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># this is the snakefile</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span></code></pre></div><p>By itself, this will error out because there are no other rules that could possibly make the file <code>file1.txt</code> that we are specifying as an input. So, let&rsquo;s add a second rule to create it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule touchfile</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>: <span style="color:#e6db74">&#34;touch file1.txt&#34;</span>
+</span></span></code></pre></div><p>Now we can run it in a normal shell session with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>snakemake Snakefile
+</span></span></code></pre></div><h2 id="using-variables">Using variables</h2>
+<p>Let&rsquo;s modify the snakefile a bit to learn about variables</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule touchfile</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>: <span style="color:#e6db74">&#34;touch {output}&#34;</span>
+</span></span></code></pre></div><p>For each rule, you can reference another section of the rule with curly braces. In the example above, we&rsquo;re referencing the <code>output</code> part of <code>rule touchfile</code> with <code>{output}</code>, which will do a drop-in replacement of <code>{output}</code> to whatever we said the output will be, in this case <code>&quot;file1.txt&quot;</code>. <strong>Note that the rule is self-referencing</strong>, that is, within <code>touchfile</code>, you&rsquo;re only referring to the <code>output</code> that&rsquo;s inside <code>rule touchfile</code> and not the <code>output</code> of any other rule.</p>
+<h2 id="message-text">Message text</h2>
+<p>We can add useful messages for the current rule with the <code>message</code> keyword.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule touchfile</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Generating file {output}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">shell</span>: <span style="color:#e6db74">&#34;touch {output}&#34;</span>
+</span></span></code></pre></div><p>Like before, the <code>{output}</code> variable will be replaced at runtime with the actual value of <code>output</code>.</p>
+<h2 id="adding-threadscores">Adding threads/cores</h2>
+<p>This can be done with the <code>threads</code> keyword, and you supply a value</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule touchfile</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">threads</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Generating file {output} using {threads} threads&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">shell</span>: <span style="color:#e6db74">&#34;touch {output}&#34;</span>
+</span></span></code></pre></div><p>Notice we changed the message to include the <code>{threads}</code> variable. Even though what we&rsquo;re doing now isn&rsquo;t multithreaded, I&rsquo;m doing it to prove a point.</p>
+<pre tabindex="0"><code># the output
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	touchfile
+	2
+
+Job 1: Generating file file1.txt using 1 threads
+
+Finished job 1.
+1 of 2 steps (50%) done
+
+localrule all:
+    input: file1.txt
+    jobid: 0
+
+Finished job 0.
+2 of 2 steps (100%) done
+</code></pre><p>Since we didn&rsquo;t specify any cores, it defaults to <code>1</code>, and all occurrences of <code>threads</code> in the entire snakefile will be scaled down to however many cores you specify. You can see this reflected in the <code>message</code> text. This is really handy because you can specify a number like we did with <code>5</code> above, and Snakemake gives you the flexibility to not need to change those values at runtime. If we wanted to use all 5 cores, then we can run</p>
+<pre tabindex="0"><code>snakemake --cores 5
+
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	touchfile
+	2
+
+Job 1: Generating file file1.txt using 5 threads
+
+Finished job 1.
+1 of 2 steps (50%) done
+
+localrule all:
+    input: file1.txt
+    jobid: 0
+
+Finished job 0.
+2 of 2 steps (100%) done
+</code></pre><p><strong>Note</strong> that just because you specify threads doesn&rsquo;t mean Snakemake will magically multithread what you&rsquo;re trying to do. The <code>{threads}</code> variable is useful to insert into programs that request threads, like <code>minimap2 -t {threads} wasp.fasta wasp.genome.fasta</code>, or when you are iterating through wildcards.</p>
+<h2 id="params">Params</h2>
+<p>Another keyword we can add is <code>params</code> that will store various parameters of things we&rsquo;re trying to run in a particular rule. This is useful for creating a very legible list of command line parameters, especially if wildcards are involved.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule touchfile</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">threads</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Generating file {output} using {threads} threads&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">params</span>: <span style="color:#e6db74">&#34;-m&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">shell</span>: <span style="color:#e6db74">&#34;touch {params} {output}&#34;</span>
+</span></span></code></pre></div><p>Here we&rsquo;re adding the <code>-m</code> flag to <code>touch</code>, saying we only want to update the modification time of existing file <code>file1.txt</code>. We could just as well have had the shell command be <code>touch -m {output}</code>, but it&rsquo;s good practice to have these parameters split out, especially when we have a lot of time.</p>
+<h2 id="multiples-of-things">Multiples of things</h2>
+<p>Specifying things in snakemake also gives us the functionality to</p>
+<ol>
+<li>Have multiple inputs and multiple outputs</li>
+<li>Name the variables within the keywords and reference them specifically</li>
+</ol>
+<p>Here we&rsquo;re introducing a few new concepts in how rules can be structured. For example, let&rsquo;s say we want to map some reads onto a reference genome with <code>minimap2</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule map_reads</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">input</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">reference = &#34;persian_walnut.fasta&#34;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">read_f = &#34;p_walnut.F.fa&#34;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">read_r = &#34;p_walnut.R.fa&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">out_bam = &#34;p_walnut.bam&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">threads</span>: <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">message</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Mapping {input.read_f} and {input.read_r} onto {input.reference}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        echo &#34;</span><span style="color:#ae81ff">Running on {threads} threads&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">minimap2 -t {threads} {input.read_f} {input.read_r} {input.reference} &gt; {output}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;</span><span style="color:#ae81ff">&#34;</span>
+</span></span></code></pre></div><p>Now let&rsquo;s dissect the new stuff:</p>
+<h3 id="naming-entries">Naming entries</h3>
+<p>First, you can name the entries under a keyword, such as <code>reference = &quot;persian_walnut.fasta&quot;</code> and refer to them later with <code>{keyword.name}</code> as we have with <code>{input.reference}</code>. <strong>Note</strong> that we didn&rsquo;t have to specify <code>{output.out_bam}</code> in the example because <code>output</code> only has one entry.  If we were to use <code>{input}</code> without specifying anything further, it would &ldquo;splat&rdquo; the contents of <code>input</code> wherever you had <code>{input}</code>. In other words, <code>{input}</code> here would be the equivalent of <code>persian_walnut.fasta p_walnut.F.fa p_walnut.R.fa</code></p>
+<h3 id="multiple-entries-per-keyword">Multiple entries per keyword</h3>
+<p>You can have several entries for each keyword. It&rsquo;s usually best/safest to name them for reference later. <strong>Notice</strong> that when listing multiple items under a keyword, there is a comma at the end of each line except the last entry.</p>
+<h3 id="tabs">Tabs</h3>
+<p>You should have noticed the structure of a keyword when it&rsquo;s multi-line, that is, that you use a tab to indicate (parent/child) hierarchy. As seen in <code>input</code>, <code>output</code>, <code>message</code>, and <code>shell</code>, we are tab-indenting the components within that keyword. Although snakemake is something of a hybrid of Python and YAML syntaxes, it sticks with the strict tabbing of Python. Since we have only one entry in <code>output</code>, we could have also written it as</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule map_reads</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">...</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;p_walnut.bam&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">threads</span>: <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">...</span>
+</span></span></code></pre></div><p>if we wanted to keep a consistent visual theme for keywords and entries.</p>
+<h3 id="blocks">Blocks</h3>
+<p>Another new concept is creating string &ldquo;blocks&rdquo; using three double-quotes. This is especially important for <code>shell</code> and <code>script</code> (invoking raw python code) keywords when you want to run multiple lines of commands within a rule. In the <code>shell</code> example above, we have two lines of code, one calling <code>echo</code> and the next calling <code>minimap2</code>. The text within these blocks need to be aligned to the quotes like you see above.</p>
+<h2 id="wildcards">Wildcards</h2>
+<p>Wildcards are probably the most useful and frustrating part of learning Snakemake and getting things to work correctly. Snakemake has a system for &ldquo;globbing&rdquo; wildcard statements and expanding them depending on what it can find in your project directory. You can think of it as a kind of GNU <code>find</code> mechanism. To demonstrate this better, let&rsquo;s create a few more files.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>1..3<span style="color:#f92672">}</span> ;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    touch file.$i.txt
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>For the wildcard mechanic to be its simplest and least frustrating, you&rsquo;ll want standardized names for files you&rsquo;d like to glob. Standardized in terms of being easy to pattern-match. In the loop above, we create 3 files that follow the convention <code>file.number.txt</code>.  This makes it easy to create a match pattern. To think of it in bash terms, a matching pattern would be <code>file.*.txt</code>. In Snakemake, we will do something similar, except we can assign a name to that wildcard. In snakemake, it looks like</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;converted.2.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule something</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: 
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">infiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>	    <span style="color:#ae81ff">outfiles = &#34;converted.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Converting {input} to {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		echo {input}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>Using curly braces, we created a wildcard <code>thing</code> that will be replaced by the actual values as if doing a pattern search of <code>file.*.txt</code>. Everything that we put <code>thing</code> into in our rule will &ldquo;lock in&rdquo; a value of <code>thing</code> for that iteration (like a loop). In this example, <code>thing</code> will be replaced everywhere with <code>2</code> for a single iteration. We will explore more complex examples below. Run this snakefile and you will get this error:</p>
+<pre tabindex="0"><code>Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	something
+	2
+
+Job 1: Converting file.2.txt to converted.2.txt
+
+file.2.txt
+Waiting at most 5 seconds for missing files.
+Error in job something while creating output file converted.2.txt.
+MissingOutputException in line 10 of /home/pdimens/test/Snakefile:
+Missing files after 5 seconds:
+converted.2.txt
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+</code></pre><p>Which has some great things to dissect! First, snakemake was only going to create <code>converted.2.txt</code> because our target output (from the input of <code>rule all</code>) forced <code>{thing}</code> to assume the value of <code>2</code> (snakemake cleverly works backwards that way). Second is that since we didn&rsquo;t actually create any output files, snakemake throws an error at us saying exactly that: our job is finished, but it can&rsquo;t find the specified output files. So, let&rsquo;s change the shell script to create the file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;converted.2.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule something</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: 
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">infiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>	    <span style="color:#ae81ff">outfiles = &#34;converted.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Converting {input} to {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		echo {input}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		cp {input} {output}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>and tada! that output tells us everything worked out:</p>
+<pre tabindex="0"><code>Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	something
+	2
+
+Job 1: Converting file.2.txt to converted.2.txt
+
+file.2.txt
+Finished job 1.
+1 of 2 steps (50%) done
+
+localrule all:
+    input: converted.2.txt
+    jobid: 0
+
+Finished job 0.
+2 of 2 steps (100%) done
+</code></pre><p>But we don&rsquo;t want just the one file, we want all of them, with which we can introduce expansions.</p>
+<h3 id="wildcards-and-bash-variables">Wildcards and bash variables</h3>
+<p>There are cases in bash where you may need to use curly braces (e.g. variables, AWK). As you&rsquo;ve noticed, snakemake pays special attention to curly braces and uses it for its own wildcard system, therefore if you need to use curly braces in bash code, you will need to &ldquo;escape&rdquo; them by using double-braces. In other words, if we define a variable <code>TOMATO=5</code> in a <code>shell</code> block, in order to use the classic bash syntax to call <code>tomato</code>, we would have to use <code>${{tomato}}</code> because <code>${tomato}</code> will give us an error since snakemake will assume it&rsquo;s one of its own variables. This makes <code>AWK</code> commands look even messier than usual. However, if you place your code in external script files (explained below), you can use standard curly braces as usual&ndash; this caveat is exclusive to text within snakefiles.</p>
+<h2 id="wildcard-expansion">Wildcard Expansion</h2>
+<p>In snakemake, you can use the <code>expand</code> function to force an expansion of a wildcard with some kind of constraints. Let&rsquo;s look at this in practice:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>expand(<span style="color:#e6db74">&#34;p_walnut.</span><span style="color:#e6db74">{avalanche}</span><span style="color:#e6db74">.fa&#34;</span>, avalanche <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>])
+</span></span></code></pre></div><p><code>expand</code> works by taking a string containing one or more wildcards as the first argument, and a definition of those wildcards as the subseqent arguments. I chose <code>avalanche</code> as the wildcard to demonstrate that you can choose any words you like for the wildcards (but descriptive is always preferred). The command above will evaluate to this vector of strings:</p>
+<pre tabindex="0"><code>&#34;p_walnut.1.fa&#34;, &#34;p_walnut.2.fa&#34;, &#34;p_walnut.3.fa&#34;
+</code></pre><p>And here is an example of using multiple wildcards for an expansion</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>expand(<span style="color:#e6db74">&#34;p_walnut_</span><span style="color:#e6db74">{num}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{read}</span><span style="color:#e6db74">.fa&#34;</span>, num <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], read <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;F&#34;</span>,<span style="color:#e6db74">&#34;R&#34;</span>])
+</span></span></code></pre></div><p>where this will expand to a vector of 6 strings, one for every combination of <code>num</code> and <code>read</code></p>
+<pre tabindex="0"><code>&#34;p_walnut_1.F.fa&#34;, &#34;p_walnut_1.R.fa&#34;, &#34;p_walnut_2.F.fa&#34;, &#34;p_walnut_2.R.fa&#34;, &#34;p_walnut_3.F.fa&#34;, &#34;p_walnut_3.R.fa&#34;
+</code></pre><p>Now we can combine this concept to create a <code>rule all</code> target that does all the conversions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#ae81ff">expand(&#34;converted.{num}.txt&#34;, num = [1,2,3,4,5,6,7])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule create</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">outfiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;creating {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		touch {output}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule convert</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">infiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">outfiles = &#34;converted.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Converting {input} to {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		cp {input} {output}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p><strong>Note</strong> here is an opportunity that we can parallelize things. Since each rule is iterative 7x because we have 7 target files, if we run snakemake with <code>snakemake --cores 3</code>, it should be able to run the jobs within a rule in parallel, 3 at a time.</p>
+<h2 id="adding-scripts">Adding scripts</h2>
+<p>One can comfortably inject python and bash code into the <code>script</code> and <code>shell</code> keywords respectively, but you can also create scripts externally and call them within a rule, like you would in any regular bash session. Let&rsquo;s create a script named <code>convert.sh</code> that does this same &ldquo;conversion&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#! /usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>cp $1 $2
+</span></span></code></pre></div><p>Here we&rsquo;re being lazy and establishing that this script takes two positional arguments, the first (<code>$1</code>) being the input, the second (<code>$2</code>) being the output. Like mentioned above, since this is outside of a snakefile, we don&rsquo;t need to adhere to any special rules. <strong>Note</strong> make this script executable with <code>chmod +x convert.sh</code>.  Now, let&rsquo;s use this script in our snakefile:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#ae81ff">expand(&#34;converted.{num}.txt&#34;, num = [1,2,3,4,5,6,7])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule create</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">outfiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;creating {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		touch {output}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule convert</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">infiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">outfiles = &#34;converted.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Converting {input} to {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		./convert.sh {input} {output} #   &lt;--- this is the only thing we changed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>And when you run it, everything will happen just like before, except you outsourced a bit of code from the snakefile to an external script. This can be very useful, especially if you&rsquo;re working with large complicated custom scripts. A good practice is to create a <code>scripts/</code> folder in your working directory and put custom scripts there, then reference them with <code>./scripts/convert.sh</code>. If Snakemake is all about order and organization, then it would make sense for us to curate the structure and organization of our working directory.</p>
+<h2 id="mix-in-r">Mix in R</h2>
+<p>It&rsquo;s more than likely you will want to incorporate some R into what you&rsquo;re doing. In a snakemake setting, you cannot (to my knowledge) have it stop and open up an R session for you to manually run lines of code, but neither would you want it to. One of the points of snakemake is to make a series of explicit rules that automates doing tasks, therefore it stands to reason that if you need to use R, you will use it much in the same way you will be using bash/python/ruby/java/c++ etc. during a workflow&ndash; as a script or program. Many R users use R as interactive sessions, often through RStudio or Jupyter notebooks, but we will need to use it as scripts that will run independently of user input. One of the easiest ways to make an R file script-friendly is to specify allowing trailing arguments in the file header:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>args <span style="color:#f92672">=</span> <span style="color:#a6e22e">commandArgs</span>(trailingOnly <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># make sure the script is running from the working directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setwd</span>(<span style="color:#a6e22e">getwd</span>()) 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># load any libraries</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(somelib)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(someotherlib)
+</span></span></code></pre></div><p>What this does is establish a variable <code>args</code> that will be a list of all the trailing arguments when you run this script, i.e. just like how bash has <code>$1</code>, <code>$2</code>, etc. for trailing positional arguments, your R script now has <code>args[1]</code>, <code>args[2]</code>, etc. for the same effect. To demonstrate it more explicitly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./convert.sh file1.txt file2.txt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $1 = file1.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $2 = file2.txt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Rscript ./convert.r file1.txt file2.txt   <span style="color:#75715e"># let&#39;s pretend we wrote an R script to do the same conversion</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># args[1] = file1.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># args[2] = file2.txt</span>
+</span></span></code></pre></div><p>Oh yeah, to run entire Rscript files via command line, you would start the command with <code>Rscript filename.r</code>. You could also add the shebang <code>#!/usr/bin/env Rscript</code> into the file. You can also incorporate R scripts as a wrapper and load in variables from the Snakemake rule itself into the R session with a custom S4 object Snakemake provides. It&rsquo;s a bit more advanced, but you can read about it <a href="https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#r-and-r-markdown">here</a></p>
+<h3 id="r-in-practice">R in practice</h3>
+<p>Let&rsquo;s first create a CSV file, then build a little R script that does stuff with it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;age,size,year,index&#34;</span> &gt; table.txt
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>1..30<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;1,2,3,4&#34;</span> &gt;&gt; table.txt
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Which creates this table of junk data</p>
+<pre tabindex="0"><code>age,size,year,index
+1,2,3,4
+1,2,3,4
+1,2,3,4
+1,2,3,4
+...
+1,2,3,4
+1,2,3,4
+1,2,3,4
+1,2,3,4
+</code></pre><p>Now we can build an R script named <code>plot_things.r</code> that imports this table and does things to it. Let&rsquo;s configure this R script to</p>
+<ol>
+<li>import the table we made</li>
+<li>create a new column using some data in the table</li>
+<li>plot the thing we did and write it to a .pdf file</li>
+<li>write the new table to a file</li>
+<li>and let&rsquo;s make the setup such that the arguments will be in the order of
+<ol>
+<li>input table</li>
+<li>output table</li>
+<li>output pdf</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>args <span style="color:#f92672">=</span> <span style="color:#a6e22e">commandArgs</span>(trailingOnly <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setwd</span>(<span style="color:#a6e22e">getwd</span>()) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.table</span>(args[1], header <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;,&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">$</span>rand <span style="color:#f92672">&lt;-</span> data<span style="color:#f92672">$</span>age <span style="color:#f92672">+</span> <span style="color:#a6e22e">runif</span>(<span style="color:#ae81ff">30</span>) <span style="color:#f92672">/</span> data<span style="color:#f92672">$</span>year
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">write.csv</span>(data, file <span style="color:#f92672">=</span> args[2], row.names <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, col.names <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pdf</span>(file <span style="color:#f92672">=</span> args[3])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">plot</span>(data<span style="color:#f92672">$</span>rand, pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>, col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;blue&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
+</span></span></code></pre></div><p>and just like before, we&rsquo;ll make it executable with <code>chmod +x plot_things.r</code>.</p>
+<p>Now we can write a new rule to execute this R script</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: 
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">files = expand(&#34;converted.{num}.txt&#34;, num = [1,2,3,4,5,6,7]),</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">table = &#34;table_mod.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule create</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">outfiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;creating {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		touch {output}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule convert</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">infiles = &#34;file.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">outfiles = &#34;converted.{thing}.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">message</span>: <span style="color:#e6db74">&#34;Converting {input} to {output}&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		./convert.sh {input} {output}		# this is the only thing we changed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule create_table</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;table.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		echo &#34;</span><span style="color:#ae81ff">age,size,year,index&#34; &gt; {output}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">for i in {[1..30]}; do	# notice the double braces!</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ae81ff">echo &#34;1,2,3,4&#34; &gt;&gt; {output}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">done</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">rule plot:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	input: &#34;</span><span style="color:#ae81ff">table.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;table_mod.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">log</span>: <span style="color:#e6db74">&#34;table_plot.pdf&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		Rscript ./plot_thngs.r {input} {output} {log}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">		&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>A few things to note here:</p>
+<ol>
+<li>We added <code>&quot;table_mod.txt&quot;</code> to <code>rule all</code> as a target. If that specification wasn&rsquo;t there, snakemake would only perform the necessary rules/tasks to generate your target and ignore the rest.</li>
+<li>We see a new keyword <code>log</code>. This is another output file specification for files that are not used for matching rule input/outputs. If you are using wildcards for <code>input</code> or <code>output</code>, your files in <code>log</code> will need to use the same wildcards or snakemake will scold you that it needs to be that way. In the rule above, since we aren&rsquo;t using any wildcards in that rule, we should be ok.</li>
+</ol>
+<h2 id="navigating-directories">Navigating directories</h2>
+<p>All paths in snakemake should be relative paths (e.g. <code>../some/folder</code> vs <code>/home/evhalen/music/1984/</code>). They <em>can</em> be absolute paths, but keep in mind a good snakefile should work on any system with the appropriate working directory setup, so absolute paths don&rsquo;t make sense given that philosophy. A good snakemake workflow reads and writes data for a really nice and organized folder structure. Something like</p>
+<pre tabindex="0"><code>working dir
+|__data
+|__scripts
+|__ANOVA
+    |__plots
+|__randomforest
+    |__plots
+|__etc...
+</code></pre><p>Which also means that your rule input/outputs need to reflect the desired folder structure. A great convenience feature of snakemake is that it will create any directories you specify in <code>output</code> if they don&rsquo;t already exist. Here&rsquo;s an example by modifying the very first rule we made in this tutorial:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rule all</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">input</span>: <span style="color:#e6db74">&#34;/this/is/a/deep/folder/file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rule touchfile</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">output</span>: <span style="color:#e6db74">&#34;this/is/a/deep/folder/file1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">shell</span>: <span style="color:#e6db74">&#34;touch {output}&#34;</span>
+</span></span></code></pre></div><p>Snakemake will create all 5 directories to make the path <code>this/is/a/deep/folder/</code> so you don&rsquo;t have to(!), which creates this wild and inefficient folder structure, but nonetheless it automates the process.</p>
+<pre tabindex="0"><code>.
+|__Snakefile
+|__this
+  |__is
+    |__a
+      |__deep
+        |__folder
+          |__file1.txt
+</code></pre><h2 id="conda-environments">Conda environments</h2>
+<p>At any point, you can export your conda environment into a &ldquo;blueprint&rdquo; that stores the packages your environment uses and their versions for 100% reproducibility. To do so, use the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda env export | grep -v <span style="color:#e6db74">&#34;^prefix: &#34;</span> &gt; my-environment.yml
+</span></span></code></pre></div><p>The <code>grep</code> part is optional, but it&rsquo;s better to use it to omit the specific prefix for better interoperability with whatever system you port it to. To create a conda environment from an exported blueprint (the <code>.yml</code> file) you use</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda env create -f my-environment.yml
+</span></span></code></pre></div>
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-snakemake">Install Snakemake</a></li>
+    <li><a href="#create-a-snakefile">Create a Snakefile</a>
+      <ul>
+        <li><a href="#snakefile-keywords">Snakefile keywords</a></li>
+        <li><a href="#graph-the-workflow">Graph the workflow</a></li>
+      </ul>
+    </li>
+    <li><a href="#babys-first-snakefile">Baby&rsquo;s first Snakefile</a></li>
+    <li><a href="#using-variables">Using variables</a></li>
+    <li><a href="#message-text">Message text</a></li>
+    <li><a href="#adding-threadscores">Adding threads/cores</a></li>
+    <li><a href="#params">Params</a></li>
+    <li><a href="#multiples-of-things">Multiples of things</a>
+      <ul>
+        <li><a href="#naming-entries">Naming entries</a></li>
+        <li><a href="#multiple-entries-per-keyword">Multiple entries per keyword</a></li>
+        <li><a href="#tabs">Tabs</a></li>
+        <li><a href="#blocks">Blocks</a></li>
+      </ul>
+    </li>
+    <li><a href="#wildcards">Wildcards</a>
+      <ul>
+        <li><a href="#wildcards-and-bash-variables">Wildcards and bash variables</a></li>
+      </ul>
+    </li>
+    <li><a href="#wildcard-expansion">Wildcard Expansion</a></li>
+    <li><a href="#adding-scripts">Adding scripts</a></li>
+    <li><a href="#mix-in-r">Mix in R</a>
+      <ul>
+        <li><a href="#r-in-practice">R in practice</a></li>
+      </ul>
+    </li>
+    <li><a href="#navigating-directories">Navigating directories</a></li>
+    <li><a href="#conda-environments">Conda environments</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/github.io/tags/tutorial"
+                target="_blank"
+              >Tutorial</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fsnakemake101%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Snakemake%20101&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fsnakemake101%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Snakemake%20101: http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fsnakemake101%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Snakemake%20101&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fsnakemake101%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  false ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:1313/github.io/" title="Pavel Dimens">
+                        <img alt="Footer logo" src="images/hero.svg"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2024  All Rights Reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
+    }
+</script>
+
+
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

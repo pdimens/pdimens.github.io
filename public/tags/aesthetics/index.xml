@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aesthetics on Pavel Dimens</title>
+    <link>http://localhost:1313/github.io/tags/aesthetics/</link>
+    <description>Recent content in Aesthetics on Pavel Dimens</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Apr 2021 23:29:21 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/github.io/tags/aesthetics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Achieving Good Visuals</title>
+      <link>http://localhost:1313/github.io/posts/goodvisuals/</link>
+      <pubDate>Sat, 03 Apr 2021 23:29:21 +0530</pubDate>
+      <guid>http://localhost:1313/github.io/posts/goodvisuals/</guid>
+      <description>At conferences, you either present your work in the form of an oral presentation (powerpoint + speaking) or as a poster. While I cannot enforce what I consider good presentation skills, I can however try to encourage others to improve the visual elements of their presentations. I&amp;rsquo;ve seen lots of good talks and posters marred by awful graphics, maps, organization, wordiness, or a slew of other things that just makes the process of absorbing new material needlessly agonizing.</description>
+    </item>
+  </channel>
+</rss>

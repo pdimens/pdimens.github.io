@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html>
+
+<head><script src="/github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=github.io/livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=images/hero.svg type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+  
+
+
+<meta property="og:url" content="http://localhost:1313/github.io/posts/structuretutorial/">
+  <meta property="og:site_name" content="Pavel Dimens">
+  <meta property="og:title" content="Using Structure">
+  <meta property="og:description" content="A gentle introduction to STRUCTURE">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-07-30T23:29:21+05:30">
+    <meta property="article:modified_time" content="2022-07-30T23:29:21+05:30">
+    <meta property="article:tag" content="Tutorial">
+    <meta property="article:tag" content="Software">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Using Structure">
+  <meta name="twitter:description" content="A gentle introduction to STRUCTURE">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="A gentle introduction to STRUCTURE">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Using Structure | Pavel Dimens
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg ">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/github.io">
+                
+                <img src="images/hero.svg" width="30" height="30"
+                    class="d-inline-block align-top">
+                Pavel Dimens
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io/posts" title="Helpful posts">
+                            
+                            Tutorials
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Using Structure</h1>
+            <div class="text-center">
+              
+                Pavel Dimens
+                <small>|</small>
+              
+              Jul 30, 2022
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/structure/structure.png" alt="Using Structure">
+          </div>
+          
+          <article class="page-content  p-2">
+          <h2 id="background">Background</h2>
+<p>Structure is a brilliant intellectual work. Structure is also not user-friendly. In fact, one might go so far as to say it&rsquo;s sometimes user-hostile.</p>
+<p><strong>User hostility</strong></p>
+<ul>
+<li>extremely unforgiving input file parsing</li>
+<li><a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf">manual is not terribly user friendly</a></li>
+<li>program is not user friendly</li>
+<li>GUI version isn&rsquo;t great for long runs (i.e. modern data)</li>
+<li>two different parameter files</li>
+<li>there are a million parameters</li>
+<li>default plots suck and aren&rsquo;t dichromat friendly</li>
+<li>runs on a single thread/cpu and takes a while depending on your data</li>
+</ul>
+<p>So, using Structure is largely about navigating these pitfalls. First, we&rsquo;re going to ignore the GUI altogether and run Structure via command line, which comes with the added bonus of being able to run multiple instances of Structure at once for different parameters (like <code>K</code>). This needs to be done in either macOS or Linux. Since it&rsquo;s a C/Java program, I&rsquo;m sure it can on Windows too, but I never bothered trying. Using cmd or powershell in Windows is a personal hell.</p>
+<h2 id="requirements">Requirements</h2>
+<ol>
+<li>Structure Downloaded from <a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/html/structure.html">here</a> (a conda installation probably works too)</li>
+<li>Java installed on the system if using the GUI (we aren&rsquo;t)</li>
+<li>Patience</li>
+</ol>
+<h2 id="input-files">Input Files</h2>
+<p>Structure has a <strong>very</strong> specific file format and it&rsquo;s awful. The first row is the locus names (optional), and the subsequent rows are the sample names (optional) and their genotypes, space delimited. You can also have extra rows after the locus header, and you&rsquo;ll need to specify how many extra rows in the &ldquo;params&rdquo; files later if you do. After the header (if it&rsquo;s there), each sample gets <em>ploidy</em> number of rows (or not), one for each allele per locus. You can force it to be one sample per row, but I assure you that&rsquo;s a nightmare waiting to happen for non-haploids. You see why this is frustrating? An example of a real-world Structure input file can be found <a href="https://github.com/pdimens/C.acronotus-data-2019/blob/master/acro_assignment_allloci_stru_input">here</a>. Snippets of it will be used for explanations below.</p>
+<h4 id="example-input-file-diploid">Example input file (diploid)</h4>
+<pre tabindex="0"><code>  snp_1 snp_2 snp_3  &lt;--- header of loci
+ind_001 002 -9 001     &lt;--- sample ind_001, first allele per locus
+ind_001 001 -9 002     &lt;--- sample ind_001, second allele per locus
+ind_002 001 001 001    &lt;--- sample ind_002, first allele per locus
+ind_002 002 002 001    &lt;--- sample ind_002, second allele per locus
+</code></pre><p>The <code>&lt;--- some words</code> are for teaching purposes, don&rsquo;t actually include that in your input file or Structure will yell at you. The file continues like that until the very end. Missing genotypes are traditionally coded as <code>-9 </code> (no idea why) , and you can change that in the <code>mainparams</code> with the <code>MISSING</code> parameter. Pro tip: just keep missing as <code>-9</code>.</p>
+<h3 id="extra-columns">Extra Columns</h3>
+<p>Unlike extra rows (which probably have some use somewhere), extra columns are very important for the input files.  Extra columns go in between the sample name and the first genotype and have to be noted in the params files (explained below). Here is an example of a snippet of a real-world structure file with extra columns:</p>
+<pre tabindex="0"><code>  snp_1 snp2 snp_3
+cca_001 1 1 1 002 001 001
+cca_001 1 1 1 001 001 002
+cca_002 1 1 1 001 001 001
+cca_002 1 1 1 002 002 001
+gaa_001 1 1 2 002 001 001
+gaa_001 1 1 2 001 001 001
+gaa_002 1 1 2 001 001 001
+gaa_002 1 1 2 001 001 001
+key_001 2 0 3 001 002 001
+key_001 2 0 3 001 002 001
+key_002 2 0 3 001 001 001
+key_002 2 0 3 001 001 002
+meg_002 2 1 4 001 001 001
+meg_002 2 1 4 001 002 001
+meg_003 2 1 4 001 001 001
+meg_003 2 1 4 002 001 002
+seg_001 2 1 5 001 -9 -9
+seg_001 2 1 5 001 -9 -9
+seg_003 2 1 5 001 001 001
+seg_003 2 1 5 001 001 001
+</code></pre><p>These three extra columns correspond to these parameters (descriptions stolen from official docs):</p>
+<h4 id="first-extra-column-popdata">First extra column: <code>POPDATA</code></h4>
+<p>An integer designating a user-defined population from which the individual was obtained (for instance these might designate the geographic sampling locations of individuals). In the default models, this information is not used by the clustering algorithm, but can be used to help organize the output (for example, plotting individuals from the same pre-defined population next to each other).</p>
+<p><strong>The human version:</strong></p>
+<p>It&rsquo;s some sort of population pre-designation which Structure won&rsquo;t use for analysis unless you tell it to. In the example file above, <code>1</code> indicates &ldquo;Atlantic Ocean&rdquo; and <code>2</code> indicates &ldquo;Gulf of Mexico&rdquo;.</p>
+<h4 id="second-extra-column-popflag">Second extra column: <code>POPFLAG</code></h4>
+<p>A Boolean flag (0 or 1) which indicates whether to use the PopData when using learning samples.</p>
+<p><strong>The human version:</strong></p>
+<p>If doing assignment testing for an unknown group, this is <strong>super</strong> important. In the file above, I wanted to see what population (Atlantic or Gulf) the Florida Keys samples (<code>key_</code>) assigned to, so I&rsquo;m omitting them from &ldquo;teaching&rdquo; Structure what Atlantic or Gulf populations &ldquo;look&rdquo; like by setting that second extra column to <code>0</code>. You can see that the <code>cca_</code> and <code>gaa</code>_ samples (Atlantic) have a <code>1</code>,  as do the <code>meg_</code> and <code>seg_</code> samples (Gulf), meaning they will be included in establishing my population signals before assignment. This now means the <code>key_</code> samples will later be assigned to these populations.</p>
+<h4 id="third-extra-column-locdata">Third extra column: <code>LOCDATA</code></h4>
+<p>An integer designating a user-defined sampling location (or other characteristic, such as a shared phenotype) for each individual. This information is used to assist the clustering when the LOCPRIOR model is turned on. If you simply wish to use the PopData for the LOCPRIOR model, then you can omit the LocData column and set LOCISPOP=1 (this tells the program to use PopData to set the locations).</p>
+<p><strong>The human version:</strong></p>
+<p>This is extra information to let you make stuff more hierarchical, of sorts.  Although I have my <code>POPDATA</code> designations of Atlantic/Gulf, I use the <code>LOCDATA</code> column to break the samples down into finer sampling localities. So, <code>cca_</code> (Cape Canaveral), is one location, <code>meg_</code> (Mideast Gulf) is another, <code>key_</code> (Florida Keys) is another, etc.</p>
+<h3 id="creating-the-input-file">Creating the input file</h3>
+<p>Options include <a href="http://www.cmpg.unibe.ch/software/PGDSpider/">PGDSpider2</a>, <a href="https://github.com/thierrygosselin/radiator">R::radiator</a>, and probably some other ones. You don&rsquo;t want to create this file by hand.  If you already have a Genepop formatted file on hand, I made a script that converts it into Structure format via radiator <a href="https://github.com/pdimens/bio-bin/blob/master/genepop2structure">here</a>. You can also use <a href="https://github.com/BioJulia/PopGen.jl">PopGen.jl</a> to read in from genepop/vcf/plink/csv and write to structure of faststructure formats.</p>
+<h2 id="parameter-files">Parameter files</h2>
+<p>You can run Structure and manually specify every parameter as arguments to the command line call, but absolutely don&rsquo;t do that. Instead, use <code>mainparams</code> and <code>extraparams</code> files.</p>
+<h3 id="mainparams">mainparams</h3>
+<p>Here is what your mainparams file should look like (yes, including the <code>#define</code> part):</p>
+<pre tabindex="0"><code>#define OUTFILE some_output_name
+#define INFILE some_input_file.str
+#define NUMINDS some_integer
+#define NUMLOCI some_integer
+#define LABEL 1 
+#define POPDATA 1 
+#define POPFLAG 1 
+#define LOCDATA 1 
+#define PHENOTYPE 0 
+#define MARKERNAMES 1 
+#define MAPDISTANCES 0 
+#define ONEROWPERIND 0 
+#define PHASEINFO 0 
+#define PHASED 0 
+#define RECESSIVEALLELES 0 
+#define EXTRACOLS 0
+#define MISSING -9
+#define PLOIDY 2
+#define MAXPOPS 2
+#define BURNIN 1000000
+#define NUMREPS 1000000
+</code></pre><p>Let&rsquo;s go through them:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mainparam</th>
+<th style="text-align:left">what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>OUTFILE</code></td>
+<td style="text-align:left">is the name you want the output file to have (no spaces) . <strong>Don&rsquo;t use quotes</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>INFILE</code></td>
+<td style="text-align:left">the name of your input file. Also no spaces, also don&rsquo;t use quotes.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMINDS</code></td>
+<td style="text-align:left">the number of samples in your input file. Structure refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMLOCI</code></td>
+<td style="text-align:left">the number of loci in your input file. Structure also refuses to intuit this number, so you have to specify it. A lot of dumb errors happen because of this.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LABEL</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether your input file contains sample names. The example input files above would use <code>LABEL 1</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>POPDATA</code>, <code>POPFLAG</code>, and <code>LOCDATA</code></td>
+<td style="text-align:left">are yes (<code>1</code>) or no (<code>0</code>) and we described in the previous section. We would set each of these to <code>1</code> for the example input file above</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PHENOTYPE</code></td>
+<td style="text-align:left">if phenotype info is included. Honestly never used this and don&rsquo;t know how to.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MARKERNAMES</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether your input file contains a header of locus names. The example input files above would use <code>MARKERNAMES 1</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAPDISTANCES</code></td>
+<td style="text-align:left">whether you have an extra row of map distances between neighboring loci.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ONEROWPERIND</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether you have a single row per sample. The example input files above would use <code>ONEROWPERIND 0</code>. It&rsquo;s iterally the worst format ever, don&rsquo;t do this.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PHASEINFO</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether you have an extra row of haplotype phase information after each sample row. This is exclusive to the other linkage-aware stuff Structure can do</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PHASED</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether your haplotypes are correctly phased, whatever that means. This is exclusive to the other linkage-aware stuff Structure can do and used in tandem with <code>PHASEINFO</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>RECESSIVEALLELES</code></td>
+<td style="text-align:left">indicates the next row of the data file contains a list of L integers indicating which alleles are recessive at each locus. Setting this to <code>1</code> implies that the dominant marker model is in use. Never used this. Would be <code>0</code> for the examples above</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>EXTRACOLS</code></td>
+<td style="text-align:left">the number of extra columns unrelated to Structure that the software should ignore. I would avoid adding anything you don&rsquo;t need to Structure input files.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MISSING</code></td>
+<td style="text-align:left">the value missing genotypes/alleles are coded as</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PLOIDY</code></td>
+<td style="text-align:left">the ploidy of your data. Structure needs this to read the rows correctly. It might have a math component too. Who knows.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAXPOPS</code></td>
+<td style="text-align:left">the number of groups Structure will try to cluster your data into. This parameter name is kind of misleading because it&rsquo;s a fixed number, not iteratively trying 1:MAXPOPS. See the section below about adjusting <code>MAXPOPS</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BURNIN</code></td>
+<td style="text-align:left">the number of iterations to use at the burn in for the Bayesian model. Ideally you&rsquo;d want the model to already converge by the time it finishes the burn in, so you&rsquo;d want this to be a reasonably high number. 1 million in the example above was probably overkill for the data it was used on (212 samples X 2204 snp loci)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>NUMREPS</code></td>
+<td style="text-align:left">the number of iterations to run the model after the burn in completes. You also want this to be a reasonably high number. 1 million in the example above was overkill for the data it was used on, 500k or 750k was probably enough. Structure took 22-24hrs to complete with those <code>BURNIN</code> and <code>NUMREPS</code> parameters on the 212x2204 data.</td>
+</tr>
+</tbody>
+</table>
+<p>There are a few more advanced &ldquo;main&rdquo; parameters, see <a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf">the documentation</a> for more information.</p>
+<h3 id="extraparams">extraparams</h3>
+<p>If you thought the mainparams were exhaustive, well, the extraparams are even more so. This file contains parameters that govern the kind of models Structure runs and how it runs them. Here is what the extraparams file looks like:</p>
+<pre tabindex="0"><code>#define NOADMIX 1
+#define LINKAGE 0
+#define USEPOPINFO 1
+#define GENSBACK 2
+
+#define LOCPRIOR 0
+#define LOCPRIORINIT  1.0  //(d) initial value for r, the location prior
+#define MAXLOCPRIOR  100.0  //(d) max allowed value for r
+
+#define INFERALPHA 1
+#define ALPHA 1.0
+#define POPALPHAS 0 
+#define UNIFPRIORALPHA 1 
+#define ALPHAMAX 10.0
+#define ALPHAPROPSD 0.025
+
+#define FREQSCORR 1 
+#define ONEFST 0
+#define FPRIORMEAN 0.01
+#define FPRIORSD 0.05
+
+#define INFERLAMBDA 0 
+#define LAMBDA 1.0
+#define COMPUTEPROB 1 
+#define PFROMPOPFLAGONLY 0 
+#define ANCESTDIST 0 
+#define STARTATPOPINFO 0 
+#define METROFREQ 10
+
+#define UPDATEFREQ 5000 
+</code></pre><p>These parameters are super specific and we&rsquo;re only going to cover a few of them, so I would recommend looking at the <a href="https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v2.3.4/structure_doc.pdf">the documentation</a> to make sense of it all.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">extraparam</th>
+<th style="text-align:left">what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>NOADMIX</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>) of whether to use the admixture model, i.e. are we allowing the model to consider admixed individuals (<code>1</code>) or can we say every individual is purely from a single population (<code>0</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LINKAGE</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>)  of whether to incorporate the linkage information mentioned above</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>USEPOPINFO</code></td>
+<td style="text-align:left">yes (<code>1</code>) or no (<code>0</code>)  of using the <code>POPINFO</code> model (corresponds to the <code>POPFLAG</code> above). This model uses sampling locations to test for migrants or hybrids</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GENSBACK</code></td>
+<td style="text-align:left">an integer of how many generations back to make assignment inferences for. In the example extraparams, this is set to <code>2</code>, meaning we want ancestry inferred for parents and grandparents too. I&rsquo;ve had minimal luck getting meaningful results from this. Use <code>0</code> to ignore this altogether.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>LOCPRIOR</code></td>
+<td style="text-align:left">a yes (<code>1</code>) or no (<code>0</code>)  of using the <code>LOCPRIOR</code> model. Use sampling locations as prior information to assist the clustering–for use with data sets where the signal of structure is relatively weak. Location information can sometimes be the thing that gives Structure enough power to identify clusters.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>UPDATEFREQ</code></td>
+<td style="text-align:left">an integer that prints some information in fixed intervals on the screen as the program runs. Think of it like a progress bar.</td>
+</tr>
+</tbody>
+</table>
+<p>The Structure docs say it&rsquo;s generally ok to try running the program without tweaking those specific model parameters like the alphas, lambda, and priors.</p>
+<h2 id="optimizing-k">Optimizing K</h2>
+<p>Since Structure can&rsquo;t tell you what the best K (<code>MAXPOPS</code>) is, you need to find that out yourself (yay). To do that, you need to run Structure for a range of <code>MAXPOPS</code> values and compare their likelihoods. According to the scrolls, the run with the highest likelihood is the optimal K, but take that with a grain of salt because you can&rsquo;t run Structure for K=1 (panmixia might be what&rsquo;s happening), and minimal differences in likelihoods obscure K optimization. See &ldquo;An advanced case&rdquo; below for a quick tip.</p>
+<h2 id="running-the-program">Running the program</h2>
+<h3 id="the-session">The session</h3>
+<p>If running it from the command line, <em>which you should</em>, it&rsquo;s generally pretty easy. For starters, since the run/runs may take a while, you don&rsquo;t want to be married to a terminal session, so I recommend these options in descending order of preference:</p>
+<ol>
+<li>using <code>screen</code> or <code>tmux</code>  to detach and reattach sessions as needed</li>
+<li><code>nohup .... &amp;</code>  to have it run silently without interruptions in the background</li>
+<li>or <code>ctrl + z</code> followed by <code>bg</code> then <code>disown -h</code></li>
+</ol>
+<h3 id="actually-running-it">Actually running it</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>path/to/structure -m mainparams.file -e extraparams.file
+</span></span></code></pre></div><p>Structure lets you add command line arguments to override some of the params in the files. I generally don&rsquo;t recommend doing this; keeping distinct copies of param files with organized naming schemes will definitely help future-proof your work. An exception to the rule is:</p>
+<ul>
+<li><code>-K</code>  change the <code>MAXPOPS</code> parameter
+<ul>
+<li>e.g. <code>structure -K 5 -m mainparams.file -e extraparams.file</code></li>
+</ul>
+</li>
+<li><code>-D</code> set the randomization seed for the run
+<ul>
+<li>this is useful if you want exact reproducible results</li>
+<li>e.g. <code>structure -D 6969 -m mainparams.file -e extraparams.file</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="an-advanced-case">An advanced case</h3>
+<p>Structure itself runs on a single thread, but you can run multiple instances of it at a time with tweaked parameters. This is very useful when you&rsquo;re trying to optimize K (<code>MAXPOPS</code>). One quick way to do that as a one-liner just uses GNU <code>parallel</code>:</p>
+<pre tabindex="0"><code>seq 2 9 | parallel -j 8 path/to/structure -K {} -m mainparams.file -e extraparams.file
+</code></pre><ul>
+<li><code>seq n1 n2</code> creates a sequence of numbers from <code>n1</code> to <code>n2</code>, which is 2:9 in this example
+<ul>
+<li>this gets piped into <code>parallel</code>, where <code>{}</code> is the placeholder to be replaced by this sequence</li>
+</ul>
+</li>
+<li><code>-j</code> sets the maximum number of jobs/threads, which is 8 in this example</li>
+<li><code>-K</code> is that <code>MAXPOPS</code> parameter we can overwrite</li>
+</ul>
+<p>This simple syntax will have <code>parallel</code> run <code>-K 2</code> through <code>-K 9</code> with up to 8 of them at a time (which is all of them!) 💃</p>
+<h2 id="visualizing-the-results">Visualizing the results</h2>
+<p>Options include:</p>
+<ul>
+<li>Using the Structure GUI to load in and visualize your results for basic data exploration.
+<ul>
+<li>life hack: save as a .pdf and open in Illustrator/Inkscape to manually edit colors</li>
+</ul>
+</li>
+<li>Apparently <a href="http://omicsspeaks.com/strplot2/">this website</a> is a thing</li>
+<li><a href="http://www.thecoalescent.com/plotstr">This script</a> seems promising too and is probably what I&rsquo;d lean towards outside of writing my own</li>
+<li>Of course I wrote my own script! <a href="https://github.com/pdimens/bio-bin/blob/main/visualization/plot_structure.r">Here is where it lives</a></li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Most of the woes with Structure are just getting the input file and params to agree with each other.</p>
+<p><strong>If using a Windows machine in any part of preparing your data for Structure</strong>:</p>
+<p>Play it safe and run the file through the GNU command line tool <a href="https://linux.die.net/man/1/dos2unix">dos2unix</a>.  Sometimes errors happen just because of the Windows CRLF line endings. When in doubt, make sure your files(s) use the Unix &ldquo;LF&rdquo; endings (default for macOS, Linux, BSD) and use UT-8 encoding (default for most things).</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#input-files">Input Files</a>
+      <ul>
+        <li></li>
+        <li><a href="#extra-columns">Extra Columns</a></li>
+        <li><a href="#creating-the-input-file">Creating the input file</a></li>
+      </ul>
+    </li>
+    <li><a href="#parameter-files">Parameter files</a>
+      <ul>
+        <li><a href="#mainparams">mainparams</a></li>
+        <li><a href="#extraparams">extraparams</a></li>
+      </ul>
+    </li>
+    <li><a href="#optimizing-k">Optimizing K</a></li>
+    <li><a href="#running-the-program">Running the program</a>
+      <ul>
+        <li><a href="#the-session">The session</a></li>
+        <li><a href="#actually-running-it">Actually running it</a></li>
+        <li><a href="#an-advanced-case">An advanced case</a></li>
+      </ul>
+    </li>
+    <li><a href="#visualizing-the-results">Visualizing the results</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/github.io/tags/tutorial"
+                target="_blank"
+              >Tutorial</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/github.io/tags/software"
+                target="_blank"
+              >Software</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fstructuretutorial%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Using%20Structure&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fstructuretutorial%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Using%20Structure: http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fstructuretutorial%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Using%20Structure&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fstructuretutorial%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  false ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:1313/github.io/" title="Pavel Dimens">
+                        <img alt="Footer logo" src="images/hero.svg"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2024  All Rights Reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
+    }
+</script>
+
+
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

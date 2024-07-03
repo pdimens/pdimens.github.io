@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+
+<head><script src="/github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=github.io/livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=images/hero.svg type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+  
+
+
+<meta property="og:url" content="http://localhost:1313/github.io/posts/bashscripting/">
+  <meta property="og:site_name" content="Pavel Dimens">
+  <meta property="og:title" content="Writing clean BASH scripts">
+  <meta property="og:description" content="Let&#39;s write bash scripts nicer and cleaner">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-07-03T23:29:21+05:30">
+    <meta property="article:modified_time" content="2022-07-03T23:29:21+05:30">
+    <meta property="article:tag" content="Tutorial">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Writing clean BASH scripts">
+  <meta name="twitter:description" content="Let&#39;s write bash scripts nicer and cleaner">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="Let&#39;s write bash scripts nicer and cleaner">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Writing clean BASH scripts | Pavel Dimens
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg ">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/github.io">
+                
+                <img src="images/hero.svg" width="30" height="30"
+                    class="d-inline-block align-top">
+                Pavel Dimens
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/github.io/posts" title="Helpful posts">
+                            
+                            Tutorials
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Writing clean BASH scripts</h1>
+            <div class="text-center">
+              
+                Pavel Dimens
+                <small>|</small>
+              
+              Jul 3, 2022
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/bash/anchie_R.png" alt="Writing clean BASH scripts">
+          </div>
+          
+          <article class="page-content  p-2">
+          <p>While you don&rsquo;t need to know <em>everything</em> about <code>sh</code> or <code>bash</code> to write functional code, you&rsquo;ll find that like <code>R</code>, there are certain ways to write code that end up making life easier for you. This tutorial is meant to share some of those methods so you can have less headaches along the way. By no means is this a &ldquo;you will be awesome at BASH after reading this&rdquo;, but rather a &ldquo;this will make life easier.&rdquo; Remember to make your shell scripts executable with <code>chmod +x &lt;script.name&gt;</code> before you run them (otherwise the system doesn&rsquo;t know that it can execute it).</p>
+<h2 id="wrap-it-up">Wrap it up</h2>
+<p>The things mentioned afterwards in the tutorial center around using &ldquo;wrapper&rdquo; scripts instead of executing things directly via command line. A wrapper (or shell) script is just an executable text file that contains the commands you want to run in the order you want to run them. So here&rsquo;s an example of a two direct commands that you might enter one after another:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd /home/user/Music/
+</span></span><span style="display:flex;"><span>mkdir ./Madonna_Greatest_Hits
+</span></span></code></pre></div><p>the wrapper script (lets call it <code>madonna.sh</code>) would be a text file that can look like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#file: madonna.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#this script will create an empty folder for Madonna&#39;s Greatest Hits in your /Music folder</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd /home/user/Music/              <span style="color:#75715e"># change directories</span>
+</span></span><span style="display:flex;"><span>mkdir ./Madonna_Greatest_Hits     <span style="color:#75715e"># make the empty folder</span>
+</span></span></code></pre></div><p>which you would execute with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./madonna.sh
+</span></span></code></pre></div><p>So here are the immediate benefits to the wrapper script:</p>
+<ol>
+<li>executing <code>madonna.sh</code> will automate all the commands you put within it</li>
+<li>you can annotate inside the file, which means you don&rsquo;t need to remember every single little detail weeks, months, or years down the line.</li>
+</ol>
+<p><strong>ok, but making empty folders to fill with Madonna&rsquo;s Greatest Hits isn&rsquo;t relevent to what you do</strong></p>
+<p>So let&rsquo;s add to this concept with things that <strong>are</strong> important and relevant</p>
+<h2 id="add-a-shebang">Add a shebang</h2>
+<p>In coding terminology, a &ldquo;shebang&rdquo; is a line at the top of a script that informs the computer what language interpreter it needs to use to correctly run your script. In other words, it tells the computer what language your code is in. All the coding languages on a computer are installed <em>somewhere</em>, so a shebang at the top of your script points to the language&rsquo;s location and cuts out the guesswork. If a system can&rsquo;t find the language, the script cannot be run. Computers by default don&rsquo;t &ldquo;speak&rdquo; all the coding languages (but common ones are usually installed by default), so you may need to occasionally install a language. The tricky thing is, different Unix-like operating systems (macOS, the different kinds of Linux) store those languages in different places due to personal preference. Conveniently, for <code>bash</code> or <code>sh</code> scripts, the &ldquo;universal&rdquo; shebang is <code>#!/usr/bin/env bash</code>, which should work on most/all systems. It should be similar for <code>ruby</code> (e.g. <code>#!/usr/bin/env ruby</code>) or python (e.g. <code>#!/usr/bin/env python</code>). So let&rsquo;s apply that to <code>madonna.sh</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># file: madonna.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># this script will create an empty folder for Madonna&#39;s Greatest Hits in your /Music folder</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd /home/user/Music/              <span style="color:#75715e"># change directories</span>
+</span></span><span style="display:flex;"><span>mkdir ./Madonna_Greatest_Hits     <span style="color:#75715e"># make the empty folder</span>
+</span></span></code></pre></div><p>Now that we have that shebang there, we don&rsquo;t need to call the script <code>madonna.sh</code>, and if we wanted to, could rename it to just <code>make_madonna_folder</code> without an extension, since the script now indicates what language the computer need to use. These shebangs are how you can call up scripts from your <code>$PATH</code> that don&rsquo;t have filename extensions, like <code>dDocent</code>, <code>canu</code>, or <code>apt</code>.</p>
+<h2 id="incorporate-variables">Incorporate variables</h2>
+<p>Fact is, you probably wont need to automate making a bunch of folders for great 80s music. The kinds of things we run, like <code>structure</code>, <code>pilon</code>, <code>vcftools</code>, require a bunch of arguments to tweak run parameters, along with input and output filenames. Often times, you will need to run and rerun these scripts to get them just right, each time tweaking some things here and there. The most time-saving way to do that is by using variables. For <code>bash</code> scripts, it&rsquo;s as simple as adding the variables between the shebang and the actual code with <code>VARIABLE=VALUE</code> (no spaces) then referencing it later in the code by adding a dollar sign in front of the variable. For example, if we were to set <code>SPICEGIRLS=1997</code>, then you would reference it with <code>$SPICEGIRLS</code>, which the script would interpret as <code>1997</code> since that&rsquo;s what you set the variable to.</p>
+<p>Let&rsquo;s apply this idea to the actual code of an actual analysis. First, let&rsquo;s look at what a direct command line execution of a particular job looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sh DBG2OLC k <span style="color:#ae81ff">17</span> AdaptiveTh 0.0001 KmerCovTh <span style="color:#ae81ff">2</span> MinOverlap <span style="color:#ae81ff">20</span> Contigs Contigs.txt f ~/assemblytest/Pacbio.fasta RemoveChimera <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>There&rsquo;s a lot of components to that, isn&rsquo;t there? There are several flags and arguments, directories for data, etc. It doesn&rsquo;t make for good legibility and changing bits will be kind of annoying. So, let&rsquo;s convert that into a shell script called <code>assemblytest.sh</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>KMER<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span>                               <span style="color:#75715e"># number of overlaps necessary</span>
+</span></span><span style="display:flex;"><span>THRESH_VALUE<span style="color:#f92672">=</span>0.0001                   <span style="color:#75715e"># error threshold</span>
+</span></span><span style="display:flex;"><span>KCOV<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>                                <span style="color:#75715e"># convergence factor</span>
+</span></span><span style="display:flex;"><span>OVERLAP<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>                            <span style="color:#75715e"># number of overlapping bases to look at</span>
+</span></span><span style="display:flex;"><span>CONTIGS<span style="color:#f92672">=</span>Contigs.txt                   <span style="color:#75715e"># input contig file</span>
+</span></span><span style="display:flex;"><span>PACBIO<span style="color:#f92672">=</span>~/assemblytest/Pacbio.fasta    <span style="color:#75715e"># input PacBio fasta file</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>~/DBG2OLC/DBG2OLC  k $KMER <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>AdaptiveTh $THRESH_VALUE <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>KmerCovTh $KCOV <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>MinOverlap $OVERLAP <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>Contigs $CONTIGS <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>f $PACBIO <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>RemoveChimera <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p><strong>Let&rsquo;s dissect this script, because there are some goodies in here.</strong></p>
+<ol>
+<li>You see the shebang at the top, so both we and the system know it&rsquo;s a <code>bash</code> script.</li>
+<li>We have created a bunch of variables up at the top, each separated by a line and annotated for outselves.</li>
+<li>Each flag (e.g. <code>AdaptiveTh</code> or <code>KmerCovTh</code>) is followed by referencing a variable that was set at the top. As an example, <code>MinOverlap $OVERLAP</code> is the same as <code>MinOverlap 20</code> because we set <code>OVERLAP=20</code> above.</li>
+<li>Each of the arguments for the <code>DBG2OLC</code> script is separated by <code>\</code> and begins on a new line, which increases code legibility substantially. The <code>\</code> at the end of each line lets us start a new line without a break in the command.</li>
+</ol>
+<p><strong>So instead of running that clunky single-line command, we would just run our shell script as:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./assemblytest.sh
+</span></span></code></pre></div><p>Remember, your script needs to be given executable permission to allow it to run, this can be done by the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>chmod +x &lt;script.name&gt;
+</span></span></code></pre></div><h2 id="add-user-inputs">Add user inputs</h2>
+<p>If you&rsquo;re reading this, you&rsquo;ve likely encountered scripts that require user inputs. If you haven&rsquo;t, the examples above demonstrate this very well. Inputs can take one of three forms:</p>
+<ol>
+<li>User prompts, like <code>dDocent</code></li>
+<li>Flags and corresponding values after the command, like <code>gzip -d &lt;file&gt;</code> or <code>structure -m mainparams.dat -e extraparams.dat</code></li>
+<li>Values after a command in a particular order, like <code>punzip &lt;working.director&gt; &lt;destination.dir&gt; &lt;keyword&gt;</code></li>
+</ol>
+<p>If you&rsquo;re writing a script where you would like user input after the command (&ldquo;arguments&rdquo;), then we need to discuss some basics.</p>
+<h3 id="user-prompts">User prompts</h3>
+<p>Not used as often as some of the other methods and can be cumbersome for advanced users, but this is a totally valid way of adding arguments. The command is actually a simple one:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>read VARIABLE
+</span></span></code></pre></div><p>This will pause the script to allow a user to input some text that will be stored as the <code>VARIABLE</code> which can be called up later in the script with <code>$VARIABLE</code> as described above. Off the bat, the user gets not indication as to what input they need to add, so common practice is to use <code>echo</code> right before <code>read</code> to give the user an idea of what they are inputting. Here are some examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;What day of the week is it?&#34;</span>
+</span></span><span style="display:flex;"><span>read DAY_INPUT
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$DAY_INPUT<span style="color:#e6db74"> is a great day to listen to ABBA&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># this is the tail end of the unpac script</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Do you want to process *scraps.bam files too? (y/n)&#34;</span>
+</span></span><span style="display:flex;"><span>read SCRAPS
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$MODE<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;multi&#39;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$SCRAPS<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;y&#39;</span> <span style="color:#f92672">]</span> ;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">then</span> process_subreads
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$MODE<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;multi&#39;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$SCRAPS<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;y&#39;</span> <span style="color:#f92672">]</span> ;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">then</span> process_subreads <span style="color:#f92672">&amp;&amp;</span>  process_scraps
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h3 id="flags-as-arguments">Flags as arguments</h3>
+<p>To use flags like in the <code>DBG2OLC</code> examples above, you will need to become acquainted with <code>getops</code>. This can be implemented in multiple ways, but the gist is that you specify what flags are possible with your script, whether they are a toggle (yes/no) or require a value, and what they do. By &ldquo;toggle&rdquo;, we&rsquo;re referring to a flag that does not require an argument after it, rather, the flag itself is the argument. Perhaps an example would help:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gzip archive.tar		<span style="color:#75715e"># this would compress archive.tar</span>
+</span></span></code></pre></div><p>versus</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gzip -d archive.tar.gz	<span style="color:#75715e"># the -d flag indicates that gzip should decompress the file</span>
+</span></span></code></pre></div><p>Another example would be in the original version of <code>unpac</code>, where the <code>-s</code> flag, if present, indicated that the script should also process <code>.scraps.bam</code> sequence files.</p>
+<p><code>getops</code> is a little tricky to figure out at first, and there are multiple ways if implementing it, so let&rsquo;s try to cover the basics that may get you started with it. First, you should know that there is <code>getopts</code> (short for &ldquo;get options&rdquo;) and the older <code>getopt</code>. For the sake of covering superficial basics, you will need to know that <code>getopts</code> requires single-letter flags (e.g. <code>-n</code> <code>-f</code>, etc.), whereas <code>getopt</code> allows for double-dashed words (e.g. <code>--file</code>  <code>--dir</code>, etc.). While more verbose flags are preferred for code approachability, <code>getopts</code> are generally preferred, so let&rsquo;s cover that.</p>
+<h4 id="getops-header"><code>getops</code> header</h4>
+<p>Including <code>getopts</code> into a bash script is as simple as adding a code chunk, in this case a <code>case</code> (described in a different tutorial) inside a <code>while</code> loop:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;:p:dⓜ️s&#34;</span> opt; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> $opt in
+</span></span></code></pre></div><p>The important part of this loop is the stuff in the quotes <code>&quot;:p:dⓜ️s&quot;</code>, where those letters are the flags you&rsquo;ll allow users to pass when running your script. In this example, the possible flags are <code>-p</code> <code>-d</code> <code>-m</code> <code>-s</code>. The colons are important, as the first flag <code>p</code> must have a colon to the left of it if your script requires flags at all (no colon on the left = flags are optional). After that, any flag that will require an argument requires a colon to the right of the letter. Looking at the example above, flags <code>p</code>, <code>d</code>, and <code>m</code> require arguments (have colons to the right of the letters), but <code>s</code> does not require an argument, therefore it has no colon to the right of it. You could just as well not require arguments from <code>m</code> or <code>d</code> but require them for <code>s</code>, which would look like <code>&quot;:p:dms:&quot;</code>. And of course, you can change the letters to whatever suits your needs. This header is followed by the body of the loop.</p>
+<h4 id="getopts-body"><code>getopts</code> body</h4>
+<p>This is the real meat of your options. This section controls what happens when a flag is invoked and what an argument (if passed to it) gets used for. If you plan on being thorough, this section also includes things like error prompts if something is missing, incorrectly written, in the wrong format (e.g. numbers instead of letters), etc.  There are many different ways to implement the option handling, but the section follows the basic format of</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    p<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      &lt;stuff stuff stuff&gt;
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    d<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      &lt;stuff stuff stuff&gt;
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    m<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      &lt;stuff stuff stuff&gt;
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      &lt;stuff stuff stuff&gt;
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">\?</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;Invalid option: -</span>$OPTARG<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>      usage  <span style="color:#75715e"># we talk about &#34;usage&#34; in section 5 below</span>
+</span></span><span style="display:flex;"><span>      exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    :<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;-</span>$OPTARG<span style="color:#e6db74"> requires an argument.&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>      usage
+</span></span><span style="display:flex;"><span>      exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>The first thing you should notice is that the convention looks pretty similar to a lettered list, with the letters corresponding to the letters we provided in the header of the loop. Within each letter, you have put a series of commands or arguments, and end the section with two semicolons <code>;;</code>. There are two additional sections for when an unrecognized flag is used <code>\?)</code> and when a flag requiring an argument is invoked without an argument provided <code>:)</code>.</p>
+<h5 id="optarg"><code>$OPTARG</code></h5>
+<p>You now also suddenly have this <code>$OPTARG</code> variable. Simply put, any argument you pass to a flag becomes coded as <code>$OPTARG</code> within that flag&rsquo;s section in the body of this loop. I think the best way to clarify what that means is with an example. Here is an excerpt of actual code:</p>
+<p>Let&rsquo;s say this is the command you put in:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>./unpac.sh -p tomato -d ./eggplant/ -m multi
+</span></span></code></pre></div><p>And this is what the getopts code looks like for <code>unpac.sh</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>PREFIX<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>WORKDIR<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>MODE<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;:p:dⓜ️s&#34;</span> opt; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> $opt in
+</span></span><span style="display:flex;"><span>    p<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;fasta file prefix set to: </span>$OPTARG<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>      PREFIX<span style="color:#f92672">=</span>$OPTARG
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    d<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      WORKDIR<span style="color:#f92672">=</span>$OPTARG
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;working directory set to: </span>$OPTARG<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>      ;;
+</span></span><span style="display:flex;"><span>    m<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      MODE<span style="color:#f92672">=</span>$OPTARG
+</span></span><span style="display:flex;"><span>      echo <span style="color:#e6db74">&#34;unpac will be run in </span>$OPTARG<span style="color:#e6db74"> mode&#34;</span>
+</span></span><span style="display:flex;"><span>      ;;
+</span></span></code></pre></div><p>Based on how we ran the script, when <code>$OPTARG</code> appears within the <code>p)</code> section, it will refer to the argument you passed for the <code>-p</code> flag, which in this case is <code>tomato</code>.  So in that section, the script will now echo &ldquo;fasta file prefix set to tomato&rdquo; and set the variable <code>PREFIX</code> to <code>tomato</code>. Likewise, in the <code>d)</code> section, <code>$OPTARG</code> is <code>./eggplant/</code>, since that is the argument we passed to that flag, and in that section the <code>WORKDIR</code> variable is set to  <code>./eggplant/</code>, and the script will echo &ldquo;working directory set to ./eggplant/&rdquo;. The same applies for the <code>-m</code> flag, which you should hopefully be able to deconstruct on your own.</p>
+<p>Also do pay attention to the empty variables above the <code>getopts</code> section. If you plan on assigning any <code>$OPTARG</code> to variables, those variables must first be established outside of (and before) the loop. This can also sometimes be a way to set default values.</p>
+<p>If you are curious to see one kind of implementation of <code>getops</code>, refer to the <code>unpac</code> script found <a href="https://github.com/pdimens/genomic-toolbox/blob/master/unpac/unpac">here</a>.</p>
+<h3 id="values-after-commands">Values after commands</h3>
+<p>This is the simplest implementation of arguments. It requires less coding than flags, but the trade of is less flexibility in that arguments must be &ldquo;passed&rdquo; in a specific order (which is why it&rsquo;s good practice to have usage text appear when the script is run without arguments). To implement something like this, then you must understand argument passing. The command you enter into the command line is interpreted and recoded by the machine in a particular way, that is, the command itself is recoded as <code>$0</code>, and every argument after the base command increases the value after the <code>$</code> by 1. Let&rsquo;s look at an example of a <em>de novo</em> RAD reference assembly script from Dr. Jon Puritz included with <code>dDocent</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>remake_reference.sh <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">6</span> 0.9 <span style="color:#ae81ff">10</span>
+</span></span></code></pre></div><p>which is &ldquo;recoded&rdquo; by the machine as</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$0 $1 $2 $3 $4 $5 $6
+</span></span></code></pre></div><p>or more simply:</p>
+<ul>
+<li><code>remake_reference.sh</code> is coded as <code>$0</code></li>
+<li>the <code>2</code> after it is coded as <code>$1</code></li>
+<li>the <code>5</code> after that is coded as <code>$2</code>
+<ul>
+<li>the <code>3</code> after that is coded as <code>$3 </code> &hellip;and so on&hellip;</li>
+</ul>
+</li>
+<li>the final <code>10</code> is coded as <code>$6</code></li>
+</ul>
+<p>Because of this, we can combine the idea of variables from Section 3 with this native recoding scheme to make up a simple script <code>list_things.sh</code> that outputs the list of files in a given directory to a file with a specific name:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#! /usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>DIRECTORY<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>OUTFILE<span style="color:#f92672">=</span>$2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd $DIRECTORY
+</span></span><span style="display:flex;"><span>ls -l &gt; $OUTFILE
+</span></span></code></pre></div><p>or another way of writing it would also be</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#! /usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>cd $1
+</span></span><span style="display:flex;"><span>ls -l &gt; $2
+</span></span></code></pre></div><p>but good practice is to have descriptive variables in your code, so the first example is recommended. This command would then be run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>list_things.sh ~/Music/Mr_Big/Lean_into_It/ album_songlist.txt
+</span></span></code></pre></div><p>and it would parse my first argument, which is the directory to a specific Mr. Big album, perform <code>ls -l</code> there, and output that into <code>album_songlist.txt</code></p>
+<h2 id="usage-text">Usage text</h2>
+<p>A great way to improve code legibility is the inclusion of what&rsquo;s known as &ldquo;usage&rdquo;. This practice is very common for command-line applications, and its purpose is to be a short reminder/summary of what the code does and how to use it. Usages are typically invoked by calling a script without any arguments, as so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt;unpac
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This script will convert PacBio bam files into fasta format using samtools,
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span> it concatenates them into a single file and counts the number of base
+</span></span><span style="display:flex;"><span>pairs and total number of contigs in the concatenated file.
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">[</span>Usage<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>unpac -p &lt;output.prefix&gt; -d &lt;working.directory&gt; -m multi -s
+</span></span><span style="display:flex;"><span>-p &lt;prefix&gt;    | prefix output <span style="color:#66d9ef">for</span> renamed final fasta files
+</span></span><span style="display:flex;"><span>-d &lt;directory&gt; | path to working directory
+</span></span><span style="display:flex;"><span>-m &lt;mode&gt;      | <span style="color:#e6db74">&#34;single&#34;</span> or <span style="color:#e6db74">&#34;multi&#34;</span> mode <span style="color:#f92672">(</span>without quotes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>-s             | toggle to also process scraps.bam <span style="color:#f92672">(</span>kind of time consuming<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>I wrote this code and use it fairly often, but even I need reminders of how to use it right, so if nothing else, usages are helpful to you too. There are two things that need to be in your script to activate usage text when no arguments/flags are passed:</p>
+<ol>
+<li>The usage text, preferably wrapped in a function (legibility and convenience)</li>
+<li>An <code>if</code> conditional recognizing when no arguments are passed</li>
+</ol>
+<p>This is actually pretty easy to do(!), so let&rsquo;s take care of the text first.</p>
+<h3 id="functions">Functions</h3>
+<p>All you really need here is a function called <code>usage</code> that invokes the <code>cat &lt;&lt;EOF</code> command and has your text within it. It follows this syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>usage<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">This script will convert PacBio bam files into fasta format using samtools,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">concatenating them into a single file and counting the number of base pairs 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">and total number of contigs in the concatenated file.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        [Usage]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">$0 -p &lt;output.prefix&gt; -d &lt;working.directory&gt; -m multi -s
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-p &lt;prefix&gt;    | prefix output for renamed final fasta files
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-d &lt;directory&gt; | path to working directory
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-m &lt;mode&gt;      | &#34;single&#34; or &#34;multi&#34; mode (without quotes)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-s             | toggle to also process scraps.bam (kind of time consuming)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The function must end with <code>EOF</code> before the closing curly brace. What content you put in there is up to you. Common convention is to have a brief explanation, an example of usage, and an explanation of the possible flags, although not necessarily in the format above (it is <em>your</em> code after all!).</p>
+<h3 id="if-conditionals"><code>if</code> conditionals</h3>
+<p>All you need here is a simple chunk of code that says &ldquo;if no arguments are given, run <code>usage</code>&rdquo;, which looks exactly like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  usage
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>The <code>-z</code> means &ldquo;equals zero&rdquo;, therefore <code>[[ -z &quot;$1&quot;]]</code> means &ldquo;if the first argument equals zero (meaning there&rsquo;s nothing there), then&rdquo; and we just tell it to run <code>usage</code> and exit out of the script. Easy peasy!</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#wrap-it-up">Wrap it up</a></li>
+    <li><a href="#add-a-shebang">Add a shebang</a></li>
+    <li><a href="#incorporate-variables">Incorporate variables</a></li>
+    <li><a href="#add-user-inputs">Add user inputs</a>
+      <ul>
+        <li><a href="#user-prompts">User prompts</a></li>
+        <li><a href="#flags-as-arguments">Flags as arguments</a></li>
+        <li><a href="#values-after-commands">Values after commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage-text">Usage text</a>
+      <ul>
+        <li><a href="#functions">Functions</a></li>
+        <li><a href="#if-conditionals"><code>if</code> conditionals</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/github.io/tags/tutorial"
+                target="_blank"
+              >Tutorial</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fbashscripting%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://twitter.com/share?text=Writing%20clean%20BASH%20scripts&url=http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fbashscripting%2f">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Writing%20clean%20BASH%20scripts: http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fbashscripting%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Writing%20clean%20BASH%20scripts&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a1313%2fgithub.io%2fposts%2fbashscripting%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  false ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:1313/github.io/" title="Pavel Dimens">
+                        <img alt="Footer logo" src="images/hero.svg"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2024  All Rights Reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (document.body.className.includes("dark")) {
+        document.body.classList.remove('dark');
+        localStorage.setItem("pref-theme", 'light');
+    }
+</script>
+
+
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>
