@@ -28,6 +28,6 @@ jobs:
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: site
-          publish_dir: .
+          publish_dir: ./public
           user_name: hugo-profile bot
           user_email: githubactionsbot@users.noreply.github.com
