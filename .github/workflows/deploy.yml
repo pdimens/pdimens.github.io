@@ -21,7 +21,7 @@ jobs:
         #  hugo-version: "0.128.1"
 
       - name: Build
-        run: cd website && hugo --gc --minify --themesDir .
+        run: hugo --gc --minify --themesDir .
 
       - name: Deploy website to the branch
         uses: peaceiris/actions-gh-pages@v4
