@@ -103,20 +103,6 @@ params:
   projects:
     enable: true
     items:
-      - title: PopGen.jl
-        content: Population genetic analyses in the Julia language
-        image: /images/popgen.png
-        featured:
-          name: explore
-          link: https://biojulia.net/PopGen.jl/
-        badges:
-          - "Julia"
-          - "Analysis"
-        links:
-          - icon: fa fa-envelope
-            url: mailto:?subject=PopGenjl
-          - icon: fab fa-github
-            url: https://github.com/BioJulia/PopGen.jl
       - title: Harpy
         content: Haplotagging data processing pipeline
         image: /images/harpy.png
@@ -131,6 +117,18 @@ params:
             url: mailto:?subject=Harpy
           - icon: fab fa-github
             url: https://github.com/pdimens/harpy
+      - title: PopGen.jl
+        content: Population genetic analyses in the Julia language
+        image: /images/popgen.png
+        featured:
+          name: explore
+          link: https://biojulia.net/PopGen.jl/
+        badges:
+          - "Julia"
+          - "Analysis"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/BioJulia/PopGen.jl
       - title: LepWrap
         content: A Snakemake-based pipeline to run LepMap3 and LepAnchor
         image: /images/lepwrap.png
@@ -141,8 +139,6 @@ params:
            - "Pipeline"
            - "Analysis"
         links:
-          - icon: fa fa-envelope
-            url: mailto:?subject=LepWrap
           - icon: fab fa-github
             url: https://github.com/pdimens/lepwrap
       - title: Gust
@@ -155,8 +151,6 @@ params:
            - "Pipeline"
            - "Analysis"
         links:
-          - icon: fa fa-envelope
-            url: mailto:?subject=Gust
           - icon: fab fa-github
             url: https://www.github.com/pdimens/gust
       - title: dDocent
