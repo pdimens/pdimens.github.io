@@ -2,10 +2,19 @@ baseURL: https://pdimens/github.io/
 languageCode: en-us
 title: Pavel Dimens
 theme: hugo-profile
+canonifyURLs: true
 markup:
   goldmark:
     renderer:
       unsafe: true
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+  page:
+    - "HTML"
+    - "RSS"
 
 Menus:
   main:
@@ -19,16 +28,45 @@ params:
   title: "Pavel Dimens"
   description: Marine Population Genomics and Evolution
   # staticPath: ""  # The path to serve the static files from
-  favicon: "images/hero.svg"
-
+  favicon: "/images/hero.2.svg"
+  animate: true
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
   # Note the lack of "" in true, it should be of boolean type.
   useBootstrapCDN: false
-
+  navbar:
+    disableSearch: true
+    stickyNavBar:
+      enable : true
+      showOnScrollUp : true
   theme:
     disableThemeToggle: false
     defaultTheme: "light"
+
+  hero:
+    enable: true
+    intro: "Hi, I'm"
+    title: "Pavel Dimens."
+    subtitle: "I study population ecology in marine systems using genomics"
+    content: "My focus has typically been highly migratory marine fishes, but sometimes crabs and other fun things get mixed in! I also emphasize lowering the barrier of entry to learn new tools/methods and try to develop user-friendly tools within my discipline."
+    image: /images/headshot.jpg
+    button:
+      enable: true
+      download: false
+      name: "CV"
+      url: "CV_Dimens.pdf"
+    socialLinks:
+      fontAwesomeIcons:
+        - icon: fab fa-github
+          url: https://www.github.com/pdimens
+        - icon: fab fa-mastodon
+          url: https://fediscience.org/@pvdimens
+      customIcons:
+        - icon: https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg
+          url: https://bsky.app/profile/pvdimens.bsky.social
+        - icon: images/popgen.svg
+          url: "https://biojulia.net/PopGen.jl/"
+
   about:
     enable: true
     title: "About Me"
@@ -279,3 +317,25 @@ params:
     content: I'm pretty responsive to emails. If you would like to get in touch, don't hesistate to write!
     email: pdimens@gmail.com
     btnName: Contact Me
+
+  singlePages:
+    socialShare: true
+    readTime:
+      enable: true
+      content: "min read"
+    scrollprogress:
+      enable: true
+    tags:
+      openInNewTab: true
+
+  footer:
+    recentPosts:
+      path: "posts"
+      count: 3
+      title: Recent Posts
+      enable: true
+      disableFeaturedImage: false
+    socialNetworks:
+      github: https://github.com/pdimens
+      linkedin: https://www.linkedin.com/in/pavelvdimens
+      twitter: https://bsky.app/profile/pvdimens.bsky.social
