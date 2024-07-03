@@ -72,11 +72,11 @@ params:
         content: |-
           Advisor: Eric Saillant
 
-          - Chapter 1: Genomic resources for the Yellowfin tuna
+          - Chapter 1: Genomic resources for the Yellowfin tuna [publication](https://doi.org/10.1007/s11033-023-09117-6)
           - Chapter 2: Population structure and demography of the Yellowfin tuna in the Atlantic Ocean
-          - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean
+          - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean [publication](https://doi.org/10.1093/icesjms/fsad012)
           - Chapter 4: Evolutionary history of the Thunnus genus using whole genome comparisons
-      - title: "Master of Science - Fisheries and Mariculature"
+      - title: "Master of Science - Fisheries and Mariculture"
         school:
           name: "Texas A&M University - Corpus Christi"
           url: "https://www.tamucc.edu"
@@ -98,6 +98,97 @@ params:
           Advisor: Kimberly Schulz
 
           Project: Trophic differences in planktonic assemblages between a pristine and invaded lake in the Adirondacks
+
+  experience:
+    enable: true
+    items:
+      - job: "STEM Technical Developer"
+        company: "eCornell"
+        companyUrl: "https://ecornell.cornell.edu/"
+        date: "Aug 2021 - present"
+        info:
+          enable: false
+        featuredLink:
+          enable: false
+          name: "View the project"
+          url: "https://example.com"
+        content: |
+          I am currently working as a Technical Developer for STEM (Science Technology Engineering Math) courses. The courses include:
+          
+          - Big data management
+          - Machine learning
+          - Natural language processing
+          - SQL database management
+          - Building interactive devices with circuitry and microcontrollers
+
+      - job: "PhD Student/Research Assistant"
+        company: "Univ Southern Mississippi"
+        companyUrl: "https://www.usm.edu/gulf-coast-research-laboratory/index.php"
+        date: "Jan 2016 - Mar 2022"
+        featuredLink:
+          enable: false
+          url: "https://example.com"
+        info:
+          enable: false
+          content: I worked as a software developer for more than one year in Amazon.
+        content: |
+          I was a PhD student under the advisement of Dr. Eric Saillant at the Gulf Coast Research Laboratory in Ocean Springs, MS. My committee
+          included Dr. Leila Hamdan, Dr. Kenneth Jones, Dr. Frank Hernandez, and the legendary James "Jim" Franks.
+
+          - Assembled 5 tuna genomes (long reads, short reads, hybrid)
+          - Created linkage maps from F1 crosses
+          - ddRAD-seq
+          - Whole-genome evolutionary comparisons
+          - Population structure and demography of Blackfin and Yellowfin tunas
+
+      - job: "Masters Student/Research Assistant"
+        company: "TAMU-Corpus Christi"
+        companyUrl: "https://www.marinegenomicslab.tamucc.edu/"
+        date: "Aug 2012 - Dec 2015"
+        info:
+          enable: false
+        featuredLink:
+          name: "Publication"
+          enable: true
+          url: "https://link.springer.com/article/10.1007/s00227-019-3533-1"
+        content: |
+          I was a Masters student under the advisement of Dr. David Portnoy at Texas A&M Univeristy - Corpus Christi. My committee included Drs. Derek Hogan and
+          Jose Guardiola. I was also mentored under the watchful eye of Dr. Stuart Willis.
+
+          - ddRAD-seq
+          - Coastal shark longlining
+          - Teaching Assistant: Anatomy and Physiology, Biology
+
+      - job: "Fellow"
+        company: "Eurasia Foundation"
+        companyUrl: "https://www.eurasia.org/project/u-s-russia-social-expertise-exchange/"
+        date: "Mar 2014 - May 2014"
+        info:
+          enable: false
+        featuredLink:
+          enable: false
+        content: |
+          I was part of a team consisting of experts from Russia and the United States to review best practices of the maintenance and stewardship of national parks and refuges between the two nations.
+
+      - job: "Intern"
+        company: "Dauphin Island Sea Lab"
+        companyUrl: "https://www.disl.edu/"
+        date: "Aug 2012 - Aug 2014"
+        info:
+          enable: false
+        content: |
+          I was an intern in the Carmichael lab (oyster ecology/restoration, manatee ecology, sediment microchemistry)
+          and the Powers lab (reef fish, shark, and oyster ecology).
+
+      - job: "GS-05 Wildlife Technician"
+        company: "USDA"
+        companyUrl: "https://www.aphis.usda.gov/aphis/newsroom/stakeholder-info/sa_by_date/sa-2022/hpai-indiana"
+        date: "June 2011 - Dec 2011"
+        info:
+          enable: false
+        content: |
+          I was a member of a team stationed at John F. Kennedy International Airport (New York City) to prevent wildlife-aviation conflicts.
+          This included monitoring the taxiways and airport perimeter, and wildlife removal.
 
 
   projects:
