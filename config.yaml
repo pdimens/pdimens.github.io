@@ -8,6 +8,10 @@ Paginate: 20
 enableRobotsTXT: true
 disqusShortname: #gurusabarish
 googleAnalytics: #G-DWJJVE27WD
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 outputs:
   home:
@@ -17,11 +21,6 @@ outputs:
   page:
     - "HTML"
     - "RSS"
-
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
 
 Menus:
   main:
