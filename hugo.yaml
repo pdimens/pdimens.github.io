@@ -53,6 +53,7 @@ params:
         - "Snakemake"
         - "SLURM"
         - "ddRAD-seq"
+        - "Haplotag linked-reads"
         - "Oxford Nanopore"
         - "GitHub Actions"
 
@@ -72,9 +73,9 @@ params:
         content: |-
           Advisor: Eric Saillant
 
-          - Chapter 1: Genomic resources for the Yellowfin tuna [publication](https://doi.org/10.1007/s11033-023-09117-6)
+          - Chapter 1: Genomic resources for the Yellowfin tuna - [link](https://doi.org/10.1007/s11033-023-09117-6)
           - Chapter 2: Population structure and demography of the Yellowfin tuna in the Atlantic Ocean
-          - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean [publication](https://doi.org/10.1093/icesjms/fsad012)
+          - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean - [link](https://doi.org/10.1093/icesjms/fsad012)
           - Chapter 4: Evolutionary history of the Thunnus genus using whole genome comparisons
       - title: "Master of Science - Fisheries and Mariculture"
         school:
@@ -102,10 +103,21 @@ params:
   experience:
     enable: true
     items:
+      - job: "Postdoctoral Fellow"
+        company: "Cornell University"
+        companyUrl: "https://www.therkildsenlab.org/"
+        date: "Sept 2023 - present"
+        info:
+          enable: false
+        featuredLink:
+          enable: false
+        content: |
+          Using haplotag linked-read technology, I'm investigating the population-level climate change induce range shifts
+          in the American Shad (Alosa sapidissima).
       - job: "STEM Technical Developer"
         company: "eCornell"
         companyUrl: "https://ecornell.cornell.edu/"
-        date: "Aug 2021 - present"
+        date: "Aug 2021 - Sept 2023"
         info:
           enable: false
         featuredLink:
@@ -203,9 +215,10 @@ params:
         badges:
           - "Pipeline"
           - "Analysis"
+          - "R"
+          - "Python"
+          - "Bash"
         links:
-          - icon: fa fa-envelope
-            url: mailto:?subject=Harpy
           - icon: fab fa-github
             url: https://github.com/pdimens/harpy
       - title: PopGen.jl
@@ -229,6 +242,9 @@ params:
         badges:
            - "Pipeline"
            - "Analysis"
+           - "R"
+           - "Python"
+           - "Bash"
         links:
           - icon: fab fa-github
             url: https://github.com/pdimens/lepwrap
@@ -253,6 +269,7 @@ params:
         badges:
            - "Pipeline"
            - "Analysis"
+          - "Bash"
         links:
           - icon: fab fa-github
             url: https://github.com/jpuritz/dDocent
