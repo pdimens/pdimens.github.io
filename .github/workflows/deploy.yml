@@ -15,13 +15,13 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Install Hugo
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
-        #with:
-        #  hugo-version: "0.128.1"
+        with:
+          hugo-version: "latest"
 
       - name: Build
-        run: hugo --gc --minify --themesDir themes
+        run: hugo --gc --minify
 
       - name: Deploy website to the branch
         uses: peaceiris/actions-gh-pages@v4
@@ -29,5 +29,3 @@ jobs:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: site
           publish_dir: ./public
-          user_name: hugo-profile bot
-          user_email: githubactionsbot@users.noreply.github.com
