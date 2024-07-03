@@ -137,6 +137,7 @@ params:
         - "Snakemake"
         - "SLURM"
         - "ddRAD-seq"
+        - "Haplotag linked-reads"
         - "Oxford Nanopore"
         - "GitHub Actions"
 
@@ -144,16 +145,26 @@ params:
   experience:
     enable: true
     items:
-      - job: "STEM Techincal Developer"
-        company: "eCornell"
-        companyUrl: "https://ecornell.cornell.edu/"
-        date: "Aug 2021 - present"
+      - job: "Postdoctoral Fellow"
+        company: "Cornell University"
+        companyUrl: "https://www.therkildsenlab.org/"
+        date: "Sept 2023 - present"
         info:
           enable: false
         featuredLink:
           enable: false
-          name: "View the project"
-          url: "https://example.com"
+        content: |
+          Using haplotag linked-read technology, I'm investigating the population-level climate change induce range shifts
+          in the American Shad (Alosa sapidissima).
+    
+      - job: "STEM Techincal Developer"
+        company: "eCornell"
+        companyUrl: "https://ecornell.cornell.edu/"
+        date: "Aug 2021 - Sept 2023"
+        info:
+          enable: false
+        featuredLink:
+          enable: false
         content: |
           I am currently working as a Technical Developer for STEM (Science Technology Engineering Math) courses. The courses include:
           
@@ -169,7 +180,6 @@ params:
         date: "Jan 2016 - Mar 2022"
         featuredLink:
           enable: false
-          url: "https://example.com"
         info:
           enable: false
           content: I worked as a software developer for more than one year in Amazon.
@@ -248,9 +258,9 @@ params:
         content: |-
           Advisor: Eric Saillant
 
-          - Chapter 1: Genomic resources for the Yellowfin tuna
+          - Chapter 1: Genomic resources for the Yellowfin tuna - [link](https://doi.org/10.1007/s11033-023-09117-6)
           - Chapter 2: Population structure and demography of the Yellowfin tuna in the Atlantic Ocean
-          - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean
+          - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean - [link](https://doi.org/10.1093/icesjms/fsad012)
           - Chapter 4: Evolutionary history of the Thunnus genus using whole genome comparisons
       - title: "Master of Science - Fisheries and Mariculature"
         school:
