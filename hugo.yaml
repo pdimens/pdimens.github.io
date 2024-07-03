@@ -269,7 +269,7 @@ params:
         badges:
            - "Pipeline"
            - "Analysis"
-          - "Bash"
+           - "Bash"
         links:
           - icon: fab fa-github
             url: https://github.com/jpuritz/dDocent
