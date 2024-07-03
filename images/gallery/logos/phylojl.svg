@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="phylojl.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg1134"
+   version="1.1"
+   viewBox="0 0 226.66925 209.08827"
+   height="209.08827mm"
+   width="226.66925mm">
+  <defs
+     id="defs1128" />
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="38"
+     inkscape:window-x="1970"
+     inkscape:window-height="1006"
+     inkscape:window-width="1418"
+     fit-margin-bottom="0"
+     fit-margin-right="0"
+     fit-margin-left="0"
+     fit-margin-top="0"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="408.42065"
+     inkscape:cx="546.69001"
+     inkscape:zoom="0.98994949"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata1131">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(18.329882,-37.206421)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       inkscape:export-ydpi="90.480003"
+       inkscape:export-xdpi="90.480003"
+       inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+       style="stroke:#369324;stroke-width:1.57137;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="g2161-8-6-0"
+       transform="matrix(1.5909162,0,0,1.5909162,-907.66599,-214.12639)">
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 634.61101,197.87409 -1.53838,-2.92671 c 0,0 -4.43385,2.89593 -8.17869,-1.44318 -2.59404,-3.00569 -0.82674,-6.85831 -0.13915,-7.51959 l -8.51628,-6.28385"
+         id="path1959-1-6-84-0"
+         sodipodi:nodetypes="ccscc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 600.89268,178.24555 3.27422,1.25678 1.38906,-3.04271 -3.00963,-1.68672"
+         id="path1961-7-1-12-8" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 604.89451,177.91483 9.69036,4.51445 c 1.32791,-3.07618 2.44509,-3.84409 3.67109,-5.09323 l -2.38125,-2.66237"
+         id="path1963-5-7-3-4"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 604.56378,171.53175 8.63203,6.18464 c 1.48129,-1.93583 3.10443,-3.81721 5.78776,-5.29167 l -1.71979,-3.00963"
+         id="path1965-6-0-4-9"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 606.9781,168.85285 2.41433,2.16627 2.42259,-2.36471 -2.27377,-2.54662"
+         id="path1967-5-3-2-7"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 610.74841,169.94425 2.28204,2.48048 c 1.75784,-1.78263 4.93072,-4.31298 8.73124,-5.29167 l -2.48047,-6.81303"
+         id="path1969-3-7-3-8"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 612.56742,163.79269 1.91824,2.82774 2.97655,-1.67019 -1.55442,-2.97656"
+         id="path1971-9-5-9-4"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 616.04008,165.94243 1.75286,2.84427"
+         id="path1973-0-1-6-9" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 655.56221,172.22628 -11.8401,7.73907 c -2.54709,-4.05238 -6.52479,-6.29757 -11.74089,-6.97839 l 0.53744,-5.0657"
+         id="path1977-1-9-4-4"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 630.12914,158.7656 -0.13227,9.12813 c 1.53768,-0.0241 3.18037,-0.0628 4.99401,0.23151 l 1.45521,-8.99583"
+         id="path1979-8-9-63-7"
+         sodipodi:nodetypes="cccc" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 644.3171,162.14491 -4.724,9.30766 c 1.36884,0.78056 2.52864,1.60428 3.46115,2.5257 l 4.70061,-5.94006"
+         id="path1983-9-3-5-5" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 648.29273,164.38997 -1.82411,2.61924 c 0.98945,0.65258 1.85275,1.38927 2.71277,2.12814 l 2.12815,-2.50231"
+         id="path1985-0-3-5-6" />
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 641.20508,172.81748 -1.86921,2.75104"
+         id="path1987-7-8-5-0" />
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 639.88565,189.98644 13.92369,0.52917"
+         id="path1989-7-5-4-1" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 660.66396,193.59919 -6.87549,-0.77175 c 0.09,-1.43957 0.15951,-2.89147 0.14032,-4.39657 l 3.25066,-0.18709"
+         id="path1991-8-8-8-2"
+         sodipodi:nodetypes="cccc" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 660.93942,186.27984 -3.57288,0.20857 c 0.12199,1.15824 0.12395,2.30149 0.0701,3.43775 l 3.50793,-0.0468"
+         id="path1993-6-8-1-1" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 638.00049,195.31118 17.36329,12.27005"
+         id="path1995-3-1-70-0" />
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 628.55487,199.3054 -0.39615,3.35341"
+         id="path1997-6-3-9-1" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 616.66846,213.89815 6.71381,-12.50156 c 3.31128,1.60073 6.17099,1.76427 9.63923,1.14053 l 0.89148,3.44657"
+         id="path1999-4-9-4-8"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 640.6794,218.79295 -1.25677,-3.37344 c 1.04352,-0.3179 2.08761,-0.70103 3.07578,-1.2237 l 1.5875,3.14193"
+         id="path2001-4-5-3-1"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 622.01659,219.83793 0.87325,-3.37344 3.21942,0.48405 -0.35778,3.45731"
+         id="path2003-5-9-9-5"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 624.53982,216.70936 0.73127,-3.3073 c 1.91529,0.208 3.84899,0.26876 5.79544,0.2275 l 0.18706,7.01548"
+         id="path2005-3-8-76-6"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 637.10753,220.04972 -2.61276,-10.48411 c -1.93991,0.39518 -4.02606,0.5822 -6.25079,0.42994 l -0.0661,3.51122"
+         id="path2007-7-9-7-3"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 640.90274,214.83376 -4.33812,-9.63507 c -1.37225,0.72005 -3.46605,1.14009 -5.39051,1.23947 l 0.30403,3.48452"
+         id="path2009-7-1-8-6"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 613.41396,215.94017 1.88516,-2.82774 c 0.81297,0.58143 1.67318,1.08805 2.57969,1.52136 l -1.48828,3.0427"
+         id="path2011-0-6-6-0"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 620.8535,193.26581 -9.82429,4.22071"
+         id="path2013-6-6-69-3"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 601.97618,203.58339 3.2093,-1.49867 c 0.4852,0.99858 1.00311,1.96665 1.63124,2.84725 l -2.82995,1.99322"
+         id="path2015-1-5-3-8"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 598.80394,192.95827 3.62501,-0.4427 c 0.0915,1.11173 0.24415,2.17004 0.49685,3.18582 l -3.50856,0.96779"
+         id="path2017-3-3-8-4"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 602.65272,194.16973 3.47184,-0.59382 c 0.25223,1.64183 0.711,2.9759 1.21723,4.23927 l -6.78702,2.44866"
+         id="path2019-7-9-5-7"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 606.5963,195.69696 3.50857,-0.96778 c 0.29649,1.89472 1.13387,3.56125 1.92109,5.24895 l -5.99267,3.59931"
+         id="path2021-2-2-6-7"
+         sodipodi:nodetypes="cccc" />
+      <path
+         sodipodi:nodetypes="cscc"
+         id="path2128-8-0-8"
+         d="m 620.85349,193.26581 c 1.50909,5.32295 9.17412,8.69716 15.53557,3.4519 3.89048,-3.20785 5.37018,-11.54593 -1.66278,-15.19794 l 4.16716,-6.28385"
+         style="fill:none;stroke:#369324;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       inkscape:export-ydpi="90.480003"
+       inkscape:export-xdpi="90.480003"
+       inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+       style="stroke:#cb3c33;stroke-width:1.57137;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.5909162,0,0,1.5909162,-969.50102,-106.01881)"
+       id="g2161-8-2-6-6">
+      <g
+         style="stroke-width:1.57137;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g2373-3"
+         transform="rotate(-15.685706,611.43947,187.97445)">
+        <path
+           style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 600.09478,181.1123 12.97214,5.9753 c 1.32791,-3.07618 3.65165,-5.54569 4.87765,-6.79483 l -2.38125,-2.66237"
+           id="path1963-5-7-4-0-9"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 601.7903,176.82377 2.73248,1.74793 2.00891,-2.7249 -2.65519,-2.14599"
+           id="path1967-5-3-0-1-3"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 605.68738,177.29196 5.82278,3.83949 c 1.44689,-2.04312 4.16948,-5.05265 7.76206,-6.63226 l -6.71829,-8.08311"
+           id="path1969-3-7-1-3-1"
+           sodipodi:nodetypes="cccc" />
+        <circle
+           r="0.0061911144"
+           cy="185.1485"
+           cx="617.76013"
+           style="fill:#000000;stroke:#a1a1a1;stroke-width:1.57137;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path2363-0" />
+      </g>
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path1977-1-9-6-2-2"
+         d="m 651.4572,170.32986 -9.21656,7.81559 c -3.3472,-2.90953 -3.83137,-3.33645 -7.87817,-4.69547 l 1.33257,-4.73829"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path1979-8-9-6-4-0"
+         d="m 635.02027,158.81308 -1.64272,8.98007 c 1.52042,0.23098 3.14682,0.46497 4.88664,1.05568 l 2.92546,-8.63043"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         id="path1985-0-3-3-2-1"
+         d="m 652.80033,166.42314 -2.23655,2.27719 c 0.86634,0.80891 1.59424,1.67962 2.31855,2.55195 l 2.51675,-2.11105"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cccc" />
+      <path
+         id="path1989-7-5-8-0-2"
+         d="m 639.88565,189.98644 13.92369,0.52917"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path1991-8-8-5-0-9"
+         d="m 660.66396,193.59919 -6.87549,-0.77175 c 0.09,-1.43957 0.15951,-2.89147 0.14032,-4.39657 l 3.25066,-0.18709"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         id="path1993-6-8-0-1-5"
+         d="m 660.93942,186.27984 -3.57288,0.20857 c 0.12199,1.15824 0.12395,2.30149 0.0701,3.43775 l 3.50793,-0.0468"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cccc" />
+      <path
+         id="path1995-3-1-5-5-7"
+         d="m 638.00049,195.31118 9.62423,6.68073"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         id="path1997-6-3-5-6-1"
+         d="m 628.55487,199.3054 -0.39615,3.35341"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path1999-4-9-8-0-3"
+         d="m 616.66846,213.89815 6.71381,-12.50156 c 3.31128,1.60073 6.17099,1.76427 9.63923,1.14053 l 0.89148,3.44657"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2001-4-5-0-8-5"
+         d="m 640.95132,218.78727 -1.25677,-3.37344 c 1.04352,-0.3179 2.08761,-0.70103 3.07578,-1.2237 l 1.5875,3.14193"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2003-5-9-1-6-6"
+         d="m 626.07504,220.66753 0.32848,-3.46911 3.25546,-0.0315 0.19376,3.47037"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2007-7-9-3-9-4"
+         d="m 635.49429,216.70368 -1.78594,-7.04453 c -1.93991,0.39518 -3.49689,0.5822 -5.72162,0.42994 l -0.033,6.52086"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2009-7-1-2-4-1"
+         d="m 641.17466,214.72886 -4.33812,-9.63507 c -1.37225,0.72005 -3.99522,1.33853 -5.91968,1.43791 l 0.30403,3.48452"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2011-0-6-4-0-3"
+         d="m 613.41396,215.94017 1.88516,-2.82774 c 0.81297,0.58143 1.67318,1.08805 2.57969,1.52136 l -1.48828,3.0427"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path2013-6-6-9-8-4"
+         d="m 620.8535,193.26581 -9.82429,4.22071"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2015-1-5-6-4-6"
+         d="m 601.97618,203.58339 3.2093,-1.49867 c 0.4852,0.99858 1.00311,1.96665 1.63124,2.84725 l -2.82995,1.99322"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2021-2-2-4-7-0"
+         d="m 599.69741,197.66139 10.40746,-2.93221 c 0.29649,1.89472 1.13387,3.56125 1.92109,5.24895 l -5.99267,3.59931"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 620.85349,193.26581 c 1.50909,5.32295 9.17412,8.69716 15.53557,3.4519 3.89048,-3.20785 5.37018,-11.54593 -1.66278,-15.19794 l 3.90258,-6.01927"
+         id="path2128-8-7-9-0"
+         sodipodi:nodetypes="cscc" />
+      <path
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 634.24379,220.52889 -0.31795,-3.47008 3.19362,-0.63229 0.83145,3.37486"
+         id="path2003-5-9-1-6-3-2"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 634.611,197.87409 -1.53837,-2.92671 c -3.5035,1.71791 -6.43468,0.77987 -8.24992,-1.33312 -1.65733,-1.92918 -1.62012,-5.77238 -0.0679,-7.62965 0.99597,-1.1917 3.19561,-2.4296 3.19561,-2.4296 l -6.88405,-20.4811"
+         id="path2361-4"
+         sodipodi:nodetypes="ccascc" />
+      <path
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 614.17157,183.11841 9.85572,3.77031"
+         id="path2384-1" />
+      <path
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 652.42832,212.83591 -2.39111,-2.69113 c 0.85808,-0.67358 1.6931,-1.40818 2.42555,-2.25268 l 2.6158,2.35572"
+         id="path2001-4-5-0-8-7-3"
+         sodipodi:nodetypes="cccc" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2001-4-5-0-8-7-6-8"
+         d="m 658.49231,206.54469 -3.05646,-1.90203 c 0.63167,-0.88938 1.22392,-1.83072 1.68664,-2.84835 l 3.17674,1.51665"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2001-4-5-0-8-7-5-6"
+         d="m 651.14592,208.9071 -5.57498,-4.57329 c 0.72522,-0.81491 3.56667,-3.86859 4.13798,-4.82946 l 6.16667,3.64113"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path1967-5-3-0-1-8-0"
+         d="m 618.10782,160.42579 1.18842,3.01817 3.22513,-1.02926 -0.8924,-3.29528"
+         style="fill:none;stroke:#cb3c33;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       style="stroke-width:1.57137;stroke-miterlimit:4;stroke-dasharray:none"
+       id="g2335-5"
+       transform="matrix(-1.5909162,0,0,1.5909162,1696.1429,96.49103)">
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 634.61101,197.87409 -1.53838,-2.92671 c 0,0 -4.43385,2.89593 -8.17869,-1.44318 -2.59404,-3.00569 -0.82674,-6.85831 -0.13915,-7.51959 l -8.51628,-6.28385"
+         id="path1959-1-6-8-4-7"
+         sodipodi:nodetypes="ccscc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 601.66723,176.51167 12.91764,5.91761 c 1.32791,-3.07618 2.44509,-3.84409 3.67109,-5.09323 l -2.38125,-2.66237"
+         id="path1963-5-7-6-0-7"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 604.56378,171.53175 8.63203,6.18464 c 1.48129,-1.93583 3.10443,-3.81721 5.78776,-5.29167 l -1.71979,-3.00963"
+         id="path1965-6-0-1-2-7"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 607.94208,166.81051 5.08837,5.61422 c 1.75784,-1.78263 4.93072,-4.31298 8.73124,-5.29167 l -2.48047,-6.81303"
+         id="path1969-3-7-9-5-6"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 655.56221,172.22628 -11.8401,7.73907 c -2.54709,-4.05238 -6.52479,-6.29757 -11.74089,-6.97839 l 0.53744,-5.0657"
+         id="path1977-1-9-0-8-2"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 630.12914,158.7656 -0.13227,9.12813 c 1.53768,-0.0241 3.18037,-0.0628 4.99401,0.23151 l 0.84717,-5.41776"
+         id="path1979-8-9-8-8-3"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 639.88565,188.67682 8.71471,0.47105"
+         id="path1989-7-5-5-2-8"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 653.95251,194.7534 -5.66349,-1.71757 c 0.56314,-1.39176 0.91611,-7.628 0.41382,-9.18143 l 7.59749,-1.59278"
+         id="path1991-8-8-0-6-6"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cccc"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 660.03461,179.30615 -3.43037,1.03 c 0.30579,1.12379 0.49067,2.25199 0.61937,3.38223 l 3.54983,-0.22924"
+         id="path1993-6-8-2-0-7"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 638.00049,195.31118 11.2971,8.71451"
+         id="path1995-3-1-7-7-9"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 628.55487,199.3054 -0.39615,3.35341"
+         id="path1997-6-3-7-0-9"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 614.9145,216.89157 8.46777,-15.49498 c 3.31128,1.60073 6.17099,1.76427 9.63923,1.14053 l 0.89148,3.44657"
+         id="path1999-4-9-1-2-5"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 637.10753,220.04972 -2.61276,-10.48411 c -1.93991,0.39518 -4.02606,0.5822 -6.25079,0.42994 l -0.62834,10.52268"
+         id="path2007-7-9-33-7-4"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 642.42409,218.2072 -5.85947,-13.00851 c -1.37225,0.72005 -3.46605,1.14009 -5.39051,1.23947 l 0.30403,3.48452"
+         id="path2009-7-1-9-7-5"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 620.8535,193.26581 -9.6741,4.01401"
+         id="path2013-6-6-6-4-0"
+         sodipodi:nodetypes="cc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 599.01921,197.80171 11.08566,-3.07253 c 0.29649,1.89472 1.13387,3.56125 1.92109,5.24895 l -9.87476,5.61051"
+         id="path2021-2-2-9-5-8"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cscc"
+         id="path2128-8-3-5-0"
+         d="m 620.85349,193.26581 c 1.50909,5.32295 9.17412,8.69716 15.53557,3.4519 3.89048,-3.20785 5.37018,-11.54593 -1.66278,-15.19794 l 4.16716,-6.28385"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         id="path1993-6-8-2-0-6-9"
+         d="m 661.83269,194.24744 -7.27711,-1.04789 c -0.2052,1.14643 -0.52161,2.24503 -0.88956,3.32141 l 7.21431,2.47847"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         id="path1993-6-8-2-0-0-8"
+         d="m 634.32102,158.92096 -0.14122,3.51095 c 1.16198,0.0789 2.28853,0.2736 3.39862,0.52201 l 0.77996,-3.41915"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cccc"
+         transform="translate(336.95309,-127.29133)" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cccc"
+         id="path2147-4"
+         d="m 987.79097,83.184654 -3.90906,-3.64979 c 1.80963,-2.004972 3.35947,-4.03458 4.85992,-6.06887 l 4.43949,3.232673"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cccc"
+         id="path2149-6"
+         d="m 988.68119,86.521662 c -0.18965,-0.270941 -2.0475,-1.982408 -2.0475,-1.982408 l 2.50729,-2.796702 2.18576,2.150221"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="90.480003"
+         inkscape:export-xdpi="90.480003"
+         inkscape:export-filename="C:\Users\pdime\Documents\EcoJulia\_assets\minimal-mistakes\phylo.png"
+         sodipodi:nodetypes="cccc"
+         style="fill:none;stroke:#9558b2;stroke-width:1.57137;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 994.63948,80.058342 -2.52493,-1.937257 2.26817,-2.99391 2.36771,1.713782"
+         id="path2149-1-0" />
+    </g>
+  </g>
+</svg>
