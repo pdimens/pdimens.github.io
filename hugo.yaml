@@ -46,7 +46,7 @@ params:
   hero:
     enable: true
     intro: "Hi, I'm"
-    title: "Pavel Dimens."
+    title: "Pavel"
     subtitle: "I study population ecology in marine systems using genomics"
     content: "My focus has typically been highly migratory marine fishes, but sometimes crabs and other fun things get mixed in! I also emphasize lowering the barrier of entry to learn new tools/methods and try to develop user-friendly tools within my discipline."
     image: /images/headshot.jpg
