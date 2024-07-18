@@ -78,7 +78,7 @@ params:
 
       I also adhere to modern approaches to research reproducibility, so I lean heavily on integrating GitHub, Jupyter Notebooks, conda environments, and Snakemake workflows for ~100% transparency.
 
-      Besides work, I enjoy cooking, hiking, swimming, rock climbing, scuba diving, relaxing and doing nothing, coding in Julia, carpentry, and the occasional platformer or RPG video game.
+      Besides work, I enjoy playing guitar, cooking, hiking, swimming, rock climbing, scuba diving, relaxing and doing nothing, coding in Julia, carpentry, and the occasional metroidvania or RPG video game.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
