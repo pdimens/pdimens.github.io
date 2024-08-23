@@ -130,7 +130,7 @@ params:
         featuredLink:
           enable: true
           name: "Thesis"
-          url: "https://link.springer.com/article/10.1007/s00227-019-3533-1"
+          url: "https://tamucc-ir.tdl.org/server/api/core/bitstreams/fb8db888-f6b7-4549-82c9-1af6e848f44a/content"
       - title: "Bachelor of Science - Aquatics and Fisheries Science"
         school:
           name: "State University of New York College of Environmental Sciences and Forestry"
