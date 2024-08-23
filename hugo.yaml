@@ -115,6 +115,10 @@ params:
           - Chapter 2: Population structure and demography of the Yellowfin tuna in the Atlantic Ocean
           - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean - [link](https://doi.org/10.1093/icesjms/fsad012)
           - Chapter 4: Evolutionary history of the Thunnus genus using whole genome comparisons
+        featuredLink:
+          enable: true
+          name: "Dissertation"
+          url: "https://aquila.usm.edu/dissertations/2013/"
       - title: "Master of Science - Fisheries and Mariculture"
         school:
           name: "Texas A&M University - Corpus Christi"
@@ -122,11 +126,10 @@ params:
         date: "2014 - 2016"
         content: |-
           Advisor: David Portnoy
-
-          Project: Population structure and demography of the Blacknose shark in the Atlantic Ocean
+          Project: Population structure and demography of the Blacknose shark in the Atlantic Ocean [link](https://link.springer.com/article/10.1007/s00227-019-3533-1)
         featuredLink:
           enable: true
-          name: "Publication"
+          name: "Thesis"
           url: "https://link.springer.com/article/10.1007/s00227-019-3533-1"
       - title: "Bachelor of Science - Aquatics and Fisheries Science"
         school:
@@ -176,11 +179,11 @@ params:
         companyUrl: "https://www.usm.edu/gulf-coast-research-laboratory/index.php"
         date: "Jan 2016 - Mar 2022"
         featuredLink:
-          enable: false
-          url: "https://example.com"
+          enable: true
+          name: "Dissertation"
+          url: "https://aquila.usm.edu/dissertations/2013/"
         info:
           enable: false
-          content: I worked as a software developer for more than one year in Amazon.
         content: |
           I was a PhD student under the advisement of Dr. Eric Saillant at the Gulf Coast Research Laboratory in Ocean Springs, MS. My committee
           included Dr. Leila Hamdan, Dr. Kenneth Jones, Dr. Frank Hernandez, and the legendary James "Jim" Franks.
@@ -198,12 +201,12 @@ params:
         info:
           enable: false
         featuredLink:
-          name: "Publication"
+          name: "Thesis"
           enable: true
-          url: "https://link.springer.com/article/10.1007/s00227-019-3533-1"
+          url: "https://tamucc-ir.tdl.org/server/api/core/bitstreams/fb8db888-f6b7-4549-82c9-1af6e848f44a/content"
         content: |
           I was a Masters student under the advisement of Dr. David Portnoy at Texas A&M Univeristy - Corpus Christi. My committee included Drs. Derek Hogan and
-          Jose Guardiola. I was also mentored under the watchful eye of Dr. Stuart Willis.
+          Jose Guardiola. I was also mentored under the watchful eye of Dr. Stuart Willis. [link]
 
           - ddRAD-seq
           - Coastal shark longlining
