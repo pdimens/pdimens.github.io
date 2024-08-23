@@ -10,8 +10,7 @@ description: "Next-level Powerpoint techniques for you to try"
 toc: 
 ---
 
-
-**Take your powerpoint slides to the next level**
+Take your powerpoint slides to the next level!
 
 Let's just clear the air and admit most presentations look bad. It's an unfortunate thing, but it's true. Most people who make slide-based presentations (i.e. PowerPoint)
 aren't skilled at design (I'm not), have no formal PowerPoint training (I don't), and only know as much as they need to in order to make presentations (also me). On top
@@ -58,7 +57,7 @@ A simple implementation of Morph would be to have scrolling text, kind of like a
 ### Push
 Another simple implementation of Morph is to have objects move in perpendicular patterns. In the example below, an object rises up from the bottom and "pushes" the
 other objects apart such that they glide offscreen. Like we did in the scrolling example, the bun is out of frame in Slide 1 and the astronaut/atom are out of frame in Slide 2. Objects that were not in the previous slide appear in a "Fade" animation pattern in the new slide, like the text in the example. 
-<img src="/images/powerpoint/morphpushgif" alt="using morph to push objects"  width=100%> 
+<img src="/images/powerpoint/morphpush.gif" alt="using morph to push objects"  width=100%> 
 
 
 ## 4. Focus blur
