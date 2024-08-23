@@ -267,7 +267,7 @@ params:
         image: /images/popgen.png
         featured:
           name: explore
-          link: https://biojulia.net/PopGen.jl/
+          link: https://biojulia.dev/PopGen.jl/
         badges:
           - "Julia"
           - "Analysis"
