@@ -5,12 +5,12 @@ draft: false
 author: "Pavel Dimens"
 tags:
   - Presentations
-image: /images/post.jpg
+image: /images/ppt_graphic.jpg
 description: "Next-level Powerpoint techniques for you to try"
 toc: 
 ---
 
-Take your powerpoint slides to the next level!
+**Take your powerpoint slides to the next level!**
 
 Let's just clear the air and admit most presentations look bad. It's an unfortunate thing, but it's true. Most people who make slide-based presentations (i.e. PowerPoint)
 aren't skilled at design (I'm not), have no formal PowerPoint training (I don't), and only know as much as they need to in order to make presentations (also me). On top
