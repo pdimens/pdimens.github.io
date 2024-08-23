@@ -5,7 +5,7 @@ draft: false
 author: "Pavel Dimens"
 tags:
   - Presentations
-image: /images/ppt_graphic.jpg
+image: /images/powerpoint/ppt_graphic.jpg
 description: "Next-level Powerpoint techniques for you to try"
 toc: 
 ---
