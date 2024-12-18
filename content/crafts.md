@@ -5,24 +5,24 @@ draft: false
 description: "I sometimes make stuff"
 layout: "gallery"
 galleryImages:
- - img: /images/crafts/ash_cup.png
- - img: /images/crafts/ash_cup2.png
- - img: /images/crafts/bills_cup.png
- - img: /images/crafts/butternut_cup.png
- - img: /images/crafts/butternut_cup2.png
- - img: /images/crafts/cedar_coffee_table.jpg
- - img: /images/crafts/cutting_board.jpg
- - img: /images/crafts/dark_table.jpg
- - img: /images/crafts/dining_table.jpg
- - img: /images/crafts/fairy_orb_lamp.jpg
- - img: /images/crafts/floor_couches.jpg
- - img: /images/crafts/headboard.jpg
- - img: /images/crafts/mac_trophy.jpg
- - img: /images/crafts/maple_cup.jpg
- - img: /images/crafts/maple_cup2.jpg
- - img: /images/crafts/pine_bed.jpg
- - img: /images/crafts/pipe_lamp.jpg
- - img: /images/crafts/wood_clock.jpg
+ - src: /images/crafts/ash_cup.png
+ - src: /images/crafts/ash_cup2.png
+ - src: /images/crafts/bills_cup.png
+ - src: /images/crafts/butternut_cup.png
+ - src: /images/crafts/butternut_cup2.png
+ - src: /images/crafts/cedar_coffee_table.jpg
+ - src: /images/crafts/cutting_board.jpg
+ - src: /images/crafts/dark_table.jpg
+ - src: /images/crafts/dining_table.jpg
+ - src: /images/crafts/fairy_orb_lamp.jpg
+ - src: /images/crafts/floor_couches.jpg
+ - src: /images/crafts/headboard.jpg
+ - src: /images/crafts/mac_trophy.jpg
+ - src: /images/crafts/maple_cup.jpg
+ - src: /images/crafts/maple_cup2.jpg
+ - src: /images/crafts/pine_bed.jpg
+ - src: /images/crafts/pipe_lamp.jpg
+ - src: /images/crafts/wood_clock.jpg
 viewer : true
 viewerOptions : {
     title: false
