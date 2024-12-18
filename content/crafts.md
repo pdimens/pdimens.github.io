@@ -11,6 +11,7 @@ galleryImages:
  - src: /images/gallery/crafts/butternut_cup.png
  - src: /images/gallery/crafts/butternut_cup2.png
  - src: /images/gallery/crafts/cedar_coffee_table.jpg
+ - src: /images/gallery/crafts/cedar_endtables.jpg
  - src: /images/gallery/crafts/cutting_board.jpg
  - src: /images/gallery/crafts/dark_table.jpg
  - src: /images/gallery/crafts/dining_table.jpg
