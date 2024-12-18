@@ -5,12 +5,24 @@ draft: false
 description: "I sometimes make stuff"
 layout: "gallery"
 galleryImages:
- - src: https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111-1500x1000.jpg
- - src: https://img.etimg.com/thumb/msid-68721417,width-650,imgsize-1016106,,resizemode-4,quality-100/nature1_gettyimages.jpg
- - src: https://thumbs.dreamstime.com/b/team-ants-council-collective-decision-work-17037482.jpg
- - src: https://thumbs.dreamstime.com/b/summer-day-smiling-women-relax-wearing-red-dress-fashion-standing-wooden-bridge-over-sea-blue-sky-background-summer-107411998.jpg
- - src: https://thumbs.dreamstime.com/b/young-woman-playing-dog-pet-beach-sunrise-sunset-girl-dog-having-fun-seasid-seaside-cute-neglected-stay-66480218.jpg
- - src: https://thumbs.dreamstime.com/b/funny-picture-taken-sunrise-frozen-lake-perspective-rider-retro-bicycle-sunrise-personal-211066044.jpg 
+ - src: /images/crafts/ash_cup.png
+ - src: /images/crafts/ash_cup2.png
+ - src: /images/crafts/bills_cup.png
+ - src: /images/crafts/butternut_cup.png
+ - src: /images/crafts/butternut_cup2.png
+ - src: /images/crafts/cedar_coffee_table.jpg
+ - src: /images/crafts/cutting_board.jpg
+ - src: /images/crafts/dark_table.jpg
+ - src: /images/crafts/dining_table.jpg
+ - src: /images/crafts/fairy_orb_lamp.jpg
+ - src: /images/crafts/floor_couches.jpg
+ - src: /images/crafts/headboard.jpg
+ - src: /images/crafts/mac_trophy.jpg
+ - src: /images/crafts/maple_cup.jpg
+ - src: /images/crafts/maple_cup2.jpg
+ - src: /images/crafts/pine_bed.jpg
+ - src: /images/crafts/pipe_lamp.jpg
+ - src: /images/crafts/wood_clock.jpg
 viewer : true
 viewerOptions : {
     title: true
