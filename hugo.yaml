@@ -23,7 +23,7 @@ Menus:
       title: Helpful posts
       url: /posts
       weight: 1
-- identifier: gallery
+    - identifier: gallery
       name: Crafts
       title: Crafts
       url: /crafts
