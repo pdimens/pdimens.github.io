@@ -20,7 +20,7 @@ galleryImages:
  - src: /images/gallery/crafts/headboard.jpg
  - src: /images/gallery/crafts/mac_trophy.jpg
  - src: /images/gallery/crafts/maple_cup.jpg
- - src: /images/gallery/crafts/maple_cup2.jpg
+ - src: /images/gallery/crafts/maple_cup2.png
  - src: /images/gallery/crafts/pine_bed.jpg
  - src: /images/gallery/crafts/pipe_lamp.jpg
  - src: /images/gallery/crafts/wood_clock.jpg
