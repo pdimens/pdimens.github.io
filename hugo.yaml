@@ -32,7 +32,7 @@ params:
   title: "Pavel Dimens"
   description: Marine Population Genomics and Evolution
   # staticPath: ""  # The path to serve the static files from
-  favicon: "/images/hero.2.svg"
+  favicon: "/images/octopus_dna.svg"
   animate: true
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
@@ -49,10 +49,10 @@ params:
 
   hero:
     enable: true
-    intro: "Hi, I'm"
-    title: "Pavel"
+    intro: "Welcome to my site, I'm"
+    title: "Pavel Dimens"
     subtitle: "I study population ecology in marine systems using genomics"
-    content: "My focus has typically been highly migratory marine fishes, but sometimes crabs and other fun things get mixed in! I also emphasize lowering the barrier of entry to learn new tools/methods and try to develop user-friendly tools within my discipline."
+    content: "My focus has primarily been highly migratory marine fishes, but other taxa find their way to my desk too. I emphasize lowering the barrier of entry to learn new tools/methods by way of easy-to-digest tutorials and developing user-friendly tools within my discipline."
     image: /images/headshot.jpg
     button:
       enable: true
@@ -74,7 +74,7 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "/images/image2.jpg"
+    image: "/images/dna_lab.jpg"
     content: |-
       I'm an marine fish ecologist masquerading as a bioinformatician/geneticist. I studied a coastal shark species for my Masters degree and  *all* the tuna species for my PhD.
       
