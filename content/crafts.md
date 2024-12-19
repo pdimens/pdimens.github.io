@@ -19,7 +19,7 @@ galleryImages:
 - src: /images/gallery/crafts/dining_table.png
 - src: /images/gallery/crafts/parents_dining_table.png
 - src: /images/gallery/crafts/dark_table.png
-- src: /images/gallery/crafts/plink.png
+- src: /images/gallery/crafts/plinko.png
 - src: /images/gallery/crafts/terraced_planter.png
 - src: /images/gallery/crafts/floor_couches.png
 - src: /images/gallery/crafts/mac_trophy.png
