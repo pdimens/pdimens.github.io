@@ -14,10 +14,13 @@ galleryImages:
 - src: /images/gallery/crafts/maple_cup2.png
 - src: /images/gallery/crafts/cedar_coffee_table.png
 - src: /images/gallery/crafts/cedar_endtables.png
+- src: /images/gallery/crafts/walnut_coffee_table.png
 - src: /images/gallery/crafts/cutting_board.png
 - src: /images/gallery/crafts/dining_table.png
 - src: /images/gallery/crafts/parents_dining_table.png
 - src: /images/gallery/crafts/dark_table.png
+- src: /images/gallery/crafts/plink.png
+- src: /images/gallery/crafts/terraced_planter.png
 - src: /images/gallery/crafts/floor_couches.png
 - src: /images/gallery/crafts/mac_trophy.png
 - src: /images/gallery/crafts/headboard.png
