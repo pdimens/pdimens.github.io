@@ -80,12 +80,12 @@ params:
       
       Over the years I developed an affinity for the technical and analytical parts of research, along with a [some would argue] pedantic attention to detail in presentation aesthetics. As a result, I design 99% of all of my graphics, templates, gifs from scratch.
 
-      I also adhere to modern approaches to research reproducibility, so I lean heavily on integrating GitHub, Jupyter Notebooks, conda environments, and Snakemake workflows for ~100% transparency.
+      I also adhere to modern approaches to research reproducibility, so I lean heavily on integrating GitHub, Jupyter Notebooks, conda environments, and Snakemake workflows for complete transparency.
 
-      Besides work, I enjoy playing guitar, cooking, hiking, swimming, rock climbing, scuba diving, relaxing and doing nothing, coding in Julia, carpentry, and the occasional metroidvania or RPG video game.
+      Besides work, I enjoy playing guitar, cooking, hiking, swimming, rock climbing, scuba diving, actually relaxing, coding in Julia, carpentry, and the occasional metroidvania or RPG video game.
     skills:
       enable: true
-      title: "Here are a few technologies I've been working with recently:"
+      title: "Here are a few technologies I've work with:"
       items:
         - "Julia"
         - "R"
@@ -95,7 +95,7 @@ params:
         - "Snakemake"
         - "SLURM"
         - "ddRAD-seq"
-        - "Haplotag linked-reads"
+        - "Haplotagging linked-reads"
         - "Oxford Nanopore"
         - "GitHub Actions"
 
@@ -339,9 +339,9 @@ params:
     recentPosts:
       path: "posts"
       count: 3
-      title: Recent Posts
+      title: Recent Tutorials
       enable: true
-      disableFeaturedImage: false
+      disableFeaturedImage: true
     socialNetworks:
       github: https://github.com/pdimens
       linkedin: https://www.linkedin.com/in/pavelvdimens
