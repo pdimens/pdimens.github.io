@@ -115,9 +115,9 @@ params:
         content: |-
           Advisor: Eric Saillant
 
-          - Chapter 1: Genomic resources for the Yellowfin tuna - [link](https://doi.org/10.1007/s11033-023-09117-6)
+          - Chapter 1: [Genomic resources for the Yellowfin tuna](https://doi.org/10.1007/s11033-023-09117-6)
           - Chapter 2: Population structure and demography of the Yellowfin tuna in the Atlantic Ocean
-          - Chapter 3: Population structure and demography of the Blackfin tuna in the Atlantic Ocean - [link](https://doi.org/10.1093/icesjms/fsad012)
+          - Chapter 3: [Population structure and demography of the Blackfin tuna in the Atlantic Ocean](https://doi.org/10.1093/icesjms/fsad012)
           - Chapter 4: Evolutionary history of the Thunnus genus using whole genome comparisons
         featuredLink:
           enable: true
@@ -130,7 +130,8 @@ params:
         date: "2014 - 2016"
         content: |-
           Advisor: David Portnoy
-          Project: Population structure and demography of the Blacknose shark in the Atlantic Ocean [link](https://link.springer.com/article/10.1007/s00227-019-3533-1)
+
+          Project: [Population structure and demography of the Blacknose shark in the Atlantic Ocean](https://link.springer.com/article/10.1007/s00227-019-3533-1)
         featuredLink:
           enable: true
           name: "Thesis"
@@ -255,7 +256,7 @@ params:
         content: Linked-read data processing software suite
         image: /images/harpy.png
         featured:
-          name: explore
+          name: learn more
           link: https://pdimens.github.io/harpy/
         badges:
           - "Pipeline"
@@ -270,7 +271,7 @@ params:
         content: Linked-read data simulator
         image: /images/mimick.png
         featured:
-          name: explore
+          name: learn more
           link: https://pdimens.github.io/mimick/
         badges:
           - "linked-read"
@@ -283,7 +284,7 @@ params:
         content: Population genetic analyses in the Julia language
         image: /images/popgen.png
         featured:
-          name: explore
+          name: learn more
           link: https://biojulia.dev/PopGen.jl/
         badges:
           - "Julia"
@@ -295,7 +296,7 @@ params:
         content: A Snakemake-based pipeline to run LepMap3 and LepAnchor
         image: /images/lepwrap.png
         featured:
-          name: explore
+          name: learn more
           link: https://github.com/pdimens/lepwrap
         badges:
            - "Pipeline"
@@ -310,7 +311,7 @@ params:
         content: A Snakemake-based pipeline for whole-genome comparison and phyolgenetic analysis using genome assemblies
         image: /images/gust.png
         featured:
-          name: explore
+          name: learn more
           link: https://www.github.com/pdimens/gust
         badges:
            - "Pipeline"
@@ -322,7 +323,7 @@ params:
         content: A pipeline for RAD sequencing 
         image: /images/ddocent.png
         featured:
-          name: explore
+          name: learn more
           link: https://www.ddocent.com/
         badges:
            - "Pipeline"
