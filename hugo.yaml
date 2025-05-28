@@ -64,12 +64,10 @@ params:
         - icon: fab fa-github
           url: https://www.github.com/pdimens
         - icon: fab fa-mastodon
-          url: https://fediscience.org/@pvdimens
+          url: https://ecoevo.social/@pvdimens
       customIcons:
         - icon: https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg
           url: https://bsky.app/profile/pvdimens.bsky.social
-        - icon: images/popgen.svg
-          url: "https://biojulia.net/PopGen.jl/"
 
   about:
     enable: true
