@@ -252,7 +252,7 @@ params:
     enable: true
     items:
       - title: Harpy
-        content: Haplotagging data processing pipeline
+        content: Linked-read data processing software suite
         image: /images/harpy.png
         featured:
           name: explore
@@ -266,6 +266,19 @@ params:
         links:
           - icon: fab fa-github
             url: https://github.com/pdimens/harpy
+      - title: Mimick
+        content: Linked-read data simulator
+        image: /images/mimick.png
+        featured:
+          name: explore
+          link: https://pdimens.github.io/mimick/
+        badges:
+          - "linked-read"
+          - "Python"
+          - "Simulation"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/pdimens/mimick
       - title: PopGen.jl
         content: Population genetic analyses in the Julia language
         image: /images/popgen.png
